@@ -10,58 +10,117 @@
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package WordPress
- * @subpackage Twenty_Seventeen
+ * @subpackage organizeOS_WP
  * @since 1.0
  * @version 1.0
  */
 
 get_header(); ?>
 
-<div class="wrap">
-	<?php if ( is_home() && ! is_front_page() ) : ?>
+
+<div id="main" class="main-index">
+
+
+	<?php if ( !is_front_page() ) : ?>
 		<header class="page-header">
-			<h1 class="page-title"><?php single_post_title(); ?></h1>
+			<h2 class="page-title"><?php single_post_title(); ?></h2>
 		</header>
+
 	<?php else : ?>
-	<header class="page-header">
-		<h2 class="page-title"><?php _e( 'Posts', 'twentyseventeen' ); ?></h2>
-	</header>
+		<header class="page-header container-fluid" id="hero">
+			<div class="row">
+				<?php get_template_part( 'template-parts/action-item' ); ?>
+
+				<?php get_template_part( 'template-parts/events-next' ); ?>
+			</div>
+		</header><!-- .page-header .grid #hero -->
+
 	<?php endif; ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+
+
+
+
+	<div class="section" id="issues">
+		<div class="container">
+			<div class="row section-title">
+				<div class="col">
+					<h2>Our Issues</h2>
+				</div>
+			</div>
+			<div class="row section-content">
+				<?php
+					// embeds the top issues, with an option to show more dynamically or go to archive page to view all for a historical view
+					get_template_part( 'template-parts/issues');
+				?>
+			</div><!-- .row -->
+		</div><!-- .container -->
+	</div><!-- .section -->
+
+
+
+
+
+
+
+
+	<div class="section" id="events">
+		<div class="container">
+			<div class="row section-title">
+				<div class="col">
+					<h2>Upcoming Events</h2>
+				</div>
+			</div>
+
+			<div class="row section-content">
+				<?php
+					// embeds the next 2 weeks of events in a weekday display, with an option to show more dynamically or go to archive page to view all
+					get_template_part( 'template-parts/events-upcoming');
+				?>
+			</div><!-- .section-content -->
+		</div><!-- .container -->
+	</div><!-- .section -->
+
+
+
+
+<div class="section" id="blog">
+	<div class="container">
+		<div class="row section-title">
+			<div class="col">
+				<h2>Updates from <?php bloginfo( 'name' ); ?></h2>
+			</div>
+		</div>
+
+		<div class="row section-content">
+			<?php
+				// embeds the 3 most recent blog posts, with an option to show more dynamically or go to archive page to view all
+				get_template_part( 'template-parts/blog-mostrecent');
+			?>
+		</div><!-- .section-content -->
+	</div><!-- .container -->
+</div><!-- .section -->
+
+
+
+<div class="section" id="about">
+	<div class="container">
+		<div class="section-title">
+			<h2>Who We Are</h2>
+		</div>
+
+		<div class="section-content">
 
 			<?php
-			if ( have_posts() ) :
-
-				/* Start the Loop */
-				while ( have_posts() ) : the_post();
-
-					/*
-					 * Include the Post-Format-specific template for the content.
-					 * If you want to override this in a child theme, then include a file
-					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					 */
-					get_template_part( 'template-parts/post/content', get_post_format() );
-
-				endwhile;
-
-				the_posts_pagination( array(
-					'prev_text' => twentyseventeen_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'twentyseventeen' ) . '</span>',
-					'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'twentyseventeen' ) . '</span>' . twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ),
-					'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentyseventeen' ) . ' </span>',
-				) );
-
-			else :
-
-				get_template_part( 'template-parts/post/content', 'none' );
-
-			endif;
+				// embeds the 3 most recent blog posts, with an option to show more dynamically or go to archive page to view all
+				get_template_part( 'template-parts/about');
 			?>
+		</div><!-- .section-content -->
+	</div><!-- .container -->
+</div><!-- .section -->
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+
+
 	<?php get_sidebar(); ?>
-</div><!-- .wrap -->
 
 <?php get_footer();

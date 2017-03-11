@@ -1,0 +1,481 @@
+/*
+Theme Name: organizeOS WP
+Theme URI: https://wordpress.org/themes/organizeOSWP/
+Author: organizeOS
+Author URI: https://organizeos.org
+Description: organizeOS serves the needs of activist organizations.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: organizeOSWP
+Tags: one-column, two-columns, right-sidebar, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+
+@import "brand";
+@import "wp-foundations";
+
+@import "assets/css/bootstrap";
+
+
+$zindices: (
+  modal     : 9000,
+  overlay   : 8000,
+  topbar    : 6000,
+);
+
+
+
+@mixin dark-on-light {
+  color: $brand-dark;
+  background: $brand-light;
+  .button.major {
+    border-color: $brand-primary;
+    color: $brand-primary;
+    &:hover {
+      background: $brand-primary;
+      color: $brand-light;
+    }
+  }
+}
+
+@mixin light-on-dark {
+  color: $brand-light;
+  background: $brand-dark;
+  .button.major {
+    border-color: $brand-light;
+    color: $brand-light;
+    &:hover {
+      background: $brand-light;
+      color: $brand-dark;
+    }
+  }
+}
+
+@mixin brand-primary-bg {
+  background: $brand-primary;
+  color: $brand-light;
+  .button.major {
+    border-color: $brand-light;
+    color: $brand-light;
+    &:hover {
+      background: $brand-light;
+      color: $brand-primary;
+    }
+  }
+}
+
+
+@mixin brand-secondary-bg {
+  background: $brand-secondary;
+  color: $brand-light;
+  .button.major {
+    border-color: $brand-light;
+    color: $brand-light;
+    &:hover {
+      background: $brand-light;
+      color: $brand-secondary;
+    }
+  }
+}
+
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+
+  font-family: $font;
+  font-size: 18px;
+}
+
+h2 {
+
+}
+
+
+
+
+ul, li {
+}
+
+
+a, a:link, a:visited {
+  color: $brand-primary;
+  text-decoration: none;
+
+  &:hover {
+    color: lighten($brand-primary, 20%);
+    cursor: pointer;
+  }
+}
+
+.button {
+  text-align: center;
+  display: inline-block;
+  letter-spacing: 0.27em;
+  line-height: 1;
+  font-family: $font;
+  text-transform: uppercase;
+  position: relative;
+  background: transparent;
+
+  padding: 0.5rem 1.25rem;
+  font-size: 0.9rem;
+
+  @include media-breakpoint-up(md) {
+    padding: 0.75rem 1.75rem;
+    font-size: 1rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.major {
+    border-radius: $border-radius;
+    border-width: 1px;
+    border-style: solid;
+  }
+
+  &.small {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.8rem;
+  }
+
+  .icon {
+    height: 18px;
+    margin-top: -9px;
+    position: absolute;
+    right: 34px;
+    top: 50%;
+    width: 18px;
+  }
+}
+
+
+
+
+
+
+.section {
+  padding: 4rem 0;
+
+  h2 {
+    padding: 2rem 0;
+    text-align: center;
+  }
+}
+
+
+$weekday-grid: (
+  columns: 7,
+  gutter: 20px,
+  media: 720px,
+  direction: ltr,
+);
+
+@mixin flex-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: space-around;
+
+  text-align: left;
+}
+
+
+@mixin flex-centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: space-around;
+
+  text-align: center;
+}
+
+
+@mixin smallcaps {
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 400;
+}
+
+
+
+
+
+.overlay {
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+}
+
+
+
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-around;
+
+  text-align: center;
+
+  @include media-breakpoint-down(md) {
+      margin-bottom: 3rem;
+  }
+  .card-inner {
+  }
+  .card-footer {
+    padding: 0;
+    background: rgba(0,0,0,0.2);
+  }
+  .button {
+    background: rgba(0,0,0,0.4);
+    margin-bottom: 1rem;
+    &:hover {
+      background: rgba(0,0,0,0.2);
+    }
+  }
+  .card-link {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    background: rgba(0,0,0,0.1);
+    @include smallcaps;
+
+    &:hover {
+      background: transparent;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+header#topbar {
+  z-index: map-get($zindices, topbar);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  padding: 1rem 3rem;
+
+  width: 100%;
+  background: transparent; //change to $brand-light with script
+
+  display: flex;
+  align-items: center;
+
+  img.logo {
+    height: 50px;
+    width: auto;
+    display: inline-block;
+  }
+
+  nav {
+    margin-left: 1rem;
+    display: inline-block;
+    ul {
+      list-style-type: none;
+      display: inline-block;
+
+      li {
+        display: inline-block;
+        height: 100%;
+
+        a {
+          display: block;
+          height: 100%;
+          padding: 0.5rem 1rem;
+          color: $brand-light;
+
+          &:hover {
+            background: $brand-primary;
+            color: $brand-light;
+            border-radius: $border-radius;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+.single {
+  #main {
+    padding-top: 6rem;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100%;
+  }
+
+}
+
+
+
+
+
+
+
+
+#hero {
+  @include light-on-dark;
+  padding: 8rem 3rem 6rem 3rem;
+
+  h2 {
+    margin-bottom: 1rem;
+    @include smallcaps;
+
+  }
+
+  h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  h4 {
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 3rem;
+  }
+
+  .action {
+    min-height: 20rem;
+
+    img {
+      max-width: 100%;
+    }
+    @include media-breakpoint-up(md) {
+      border-right: solid 1px $brand-light;
+    }
+  }
+
+  .event {
+    @include flex-centered;
+
+  }
+
+}
+
+
+
+
+
+
+.container {
+}
+
+.section-title {
+  margin-bottom: 3rem;
+}
+
+.section-content {
+
+}
+
+
+
+
+
+
+#issues {
+  @include dark-on-light;
+  .row > div {
+    @include flex-centered;
+  }
+}
+
+#events {
+  @include light-on-dark;
+
+  h3 {
+    @include smallcaps;
+  }
+
+  .card {
+    @include flex-centered;
+    @include media-breakpoint-down(sm) {
+      @include make-col(2, 4);
+    }
+    @include media-breakpoint-up(md) {
+      @include make-col(2, 6);
+    }
+    @include media-breakpoint-up(lg) {
+      @include make-col(1, 7);
+    }
+    .card-inner {
+      @include dark-on-light;
+    }
+  }
+}
+
+#blog {
+  .card {
+    @include flex-left;
+    .card-inner {
+      @include brand-primary-bg;
+    }
+    .card-footer {
+      text-align: center;
+      .button {
+        color: $brand-light;
+      }
+    }
+  }
+}
+
+
+#about {
+  @include brand-secondary-bg;
+}
+
+
+
+footer {
+  @include light-on-dark;
+  padding: 3rem 0;
+}
+
+
+
+
+
+
+
+article {
+  @include dark-on-light;
+}

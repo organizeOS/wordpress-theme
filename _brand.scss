@@ -1,0 +1,33 @@
+/*
+Theme Name: organizeOS WP
+Author: organizeOS
+
+This scss file contains variable definitions for the specific brand. When creating a child theme, modify this file only.
+
+*/
+
+
+
+$brand-primary: rgb(49, 47, 150);
+$brand-secondary: rgb(124, 78, 165);
+
+$brand-accent: #09f;
+
+$brand-light: #EEE;
+$brand-neutral: #BBB;
+$brand-dark: rgb(51, 51, 51);
+
+$brand-dark-lighter: lighten($brand-dark, 10%);
+
+
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,700,700i');
+$font: "Source Sans Pro", sans-serif;
+
+
+
+$border-radius: 0px;
+
+
+$card-border-width:        0;
+$card-border-radius:       0;
+$card-bg:                  transparent;
