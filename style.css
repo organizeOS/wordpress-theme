@@ -6299,6 +6299,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   }
 }
 
+/* MIXINS, for delicious flavors */
 * {
   margin: 0;
   padding: 0;
@@ -6330,6 +6331,7 @@ a:hover, a:link:hover, a:visited:hover {
   text-transform: uppercase;
   position: relative;
   background: transparent;
+  border: none;
   padding: 0.5rem 1.25rem;
   font-size: 0.9rem;
 }
@@ -6347,8 +6349,6 @@ a:hover, a:link:hover, a:visited:hover {
 
 .button.major {
   border-radius: 0px;
-  border-width: 1px;
-  border-style: solid;
 }
 
 .button.small {
@@ -6366,12 +6366,24 @@ a:hover, a:link:hover, a:visited:hover {
 }
 
 .section {
-  padding: 4rem 0;
+  padding: 2rem 0;
 }
 
-.section h2 {
-  padding: 2rem 0;
+@media (min-width: 768px) {
+  .section {
+    padding: 4rem 0;
+  }
+}
+
+.section-title {
   text-align: center;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    margin-bottom: 4rem;
+  }
 }
 
 .overlay {
@@ -6385,22 +6397,25 @@ a:hover, a:link:hover, a:visited:hover {
   justify-content: space-between;
   align-content: space-around;
   text-align: center;
+  margin: 1rem 0;
 }
 
-@media (max-width: 991px) {
-  .card {
-    margin-bottom: 3rem;
-  }
+.card .card-block {
+  padding: 1rem;
 }
 
 .card .card-footer {
-  padding: 0;
+  padding: 1rem;
   background: rgba(0, 0, 0, 0.2);
+}
+
+.card .card-footer h4 {
+  font-weight: 200;
 }
 
 .card .button {
   background: rgba(0, 0, 0, 0.4);
-  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .card .button:hover {
@@ -6411,7 +6426,7 @@ a:hover, a:link:hover, a:visited:hover {
   display: block;
   width: 100%;
   padding: 0.5rem;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.3);
   font-size: 0.8em;
   text-transform: uppercase;
   letter-spacing: 0.2em;
@@ -6419,15 +6434,31 @@ a:hover, a:link:hover, a:visited:hover {
 }
 
 .card .card-link:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+article {
+  color: #333333;
+  background: #EEE;
   background: transparent;
+}
+
+article .button.major {
+  background: rgba(49, 47, 150, 0.8);
+  color: #EEE;
+}
+
+article .button.major:hover {
+  background: #312f96;
+  color: #EEE;
 }
 
 header#topbar {
   z-index: 6000;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
-  padding: 1rem 3rem;
+  padding: 0.5rem 3rem;
   width: 100%;
   background: transparent;
   display: flex;
@@ -6441,7 +6472,6 @@ header#topbar img.logo {
 }
 
 header#topbar nav {
-  margin-left: 1rem;
   display: inline-block;
 }
 
@@ -6468,27 +6498,79 @@ header#topbar nav ul li a:hover {
   border-radius: 0px;
 }
 
+@media (min-width: 992px) {
+  #main {
+    height: 100%;
+  }
+}
+
 .single #main {
-  padding-top: 6rem;
-  background-size: cover;
+  height: 100%;
+}
+
+.single .entry-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: space-around;
+  text-align: center;
+  color: #EEE;
+  background: #333333;
+  background-repeat: repeat;
   background-attachment: fixed;
-  min-height: 100%;
+  height: 100%;
+}
+
+.single .entry-header .button.major {
+  background: rgba(238, 238, 238, 0.8);
+  color: #333333;
+}
+
+.single .entry-header .button.major:hover {
+  background: #EEE;
+  color: #333333;
+}
+
+.single .entry-header .button.minor {
+  background: rgba(238, 238, 238, 0.3);
+  color: #333333;
+}
+
+.single .entry-header .button.minor:hover {
+  background: rgba(238, 238, 238, 0.5);
+  color: #333333;
 }
 
 #hero {
   color: #EEE;
   background: #333333;
-  padding: 8rem 3rem 6rem 3rem;
+  padding: 8rem 2rem 6rem 2rem;
 }
 
 #hero .button.major {
-  border-color: #EEE;
-  color: #EEE;
+  background: rgba(238, 238, 238, 0.8);
+  color: #333333;
 }
 
 #hero .button.major:hover {
   background: #EEE;
   color: #333333;
+}
+
+#hero .button.minor {
+  background: rgba(238, 238, 238, 0.3);
+  color: #333333;
+}
+
+#hero .button.minor:hover {
+  background: rgba(238, 238, 238, 0.5);
+  color: #333333;
+}
+
+@media (min-width: 992px) {
+  #hero {
+    height: 100%;
+  }
 }
 
 #hero h2 {
@@ -6512,17 +6594,14 @@ header#topbar nav ul li a:hover {
   margin-bottom: 3rem;
 }
 
-#hero .action {
-  min-height: 20rem;
-}
-
 #hero .action img {
   max-width: 100%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   #hero .action {
     border-right: solid 1px #EEE;
+    padding-right: 2rem;
   }
 }
 
@@ -6531,11 +6610,13 @@ header#topbar nav ul li a:hover {
   flex-direction: column;
   justify-content: space-around;
   align-content: space-around;
-  text-align: center;
+  text-align: left;
 }
 
-.section-title {
-  margin-bottom: 3rem;
+@media (min-width: 992px) {
+  #hero .event {
+    padding-left: 2rem;
+  }
 }
 
 #issues {
@@ -6544,21 +6625,13 @@ header#topbar nav ul li a:hover {
 }
 
 #issues .button.major {
-  border-color: #312f96;
-  color: #312f96;
+  background: rgba(49, 47, 150, 0.8);
+  color: #EEE;
 }
 
 #issues .button.major:hover {
   background: #312f96;
   color: #EEE;
-}
-
-#issues .row > div {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-content: space-around;
-  text-align: center;
 }
 
 #events {
@@ -6567,12 +6640,22 @@ header#topbar nav ul li a:hover {
 }
 
 #events .button.major {
-  border-color: #EEE;
-  color: #EEE;
+  background: rgba(238, 238, 238, 0.8);
+  color: #333333;
 }
 
 #events .button.major:hover {
   background: #EEE;
+  color: #333333;
+}
+
+#events .button.minor {
+  background: rgba(238, 238, 238, 0.3);
+  color: #333333;
+}
+
+#events .button.minor:hover {
+  background: rgba(238, 238, 238, 0.5);
   color: #333333;
 }
 
@@ -6591,39 +6674,22 @@ header#topbar nav ul li a:hover {
   text-align: center;
 }
 
-@media (max-width: 767px) {
-  #events .card {
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
-}
-
-@media (min-width: 768px) {
-  #events .card {
-    flex: 0 0 33.33333%;
-    max-width: 33.33333%;
-  }
-}
-
-@media (min-width: 992px) {
-  #events .card {
-    flex: 0 0 14.28571%;
-    max-width: 14.28571%;
-  }
-}
-
 #events .card .card-inner {
   color: #333333;
   background: #EEE;
 }
 
 #events .card .card-inner .button.major {
-  border-color: #312f96;
-  color: #312f96;
+  background: rgba(49, 47, 150, 0.8);
+  color: #EEE;
 }
 
 #events .card .card-inner .button.major:hover {
   background: #312f96;
+  color: #EEE;
+}
+
+#events .card .card-link {
   color: #EEE;
 }
 
@@ -6632,7 +6698,7 @@ header#topbar nav ul li a:hover {
   flex-direction: column;
   justify-content: space-around;
   align-content: space-around;
-  text-align: left;
+  text-align: center;
 }
 
 #blog .card .card-inner {
@@ -6641,8 +6707,8 @@ header#topbar nav ul li a:hover {
 }
 
 #blog .card .card-inner .button.major {
-  border-color: #EEE;
-  color: #EEE;
+  background: rgba(238, 238, 238, 0.8);
+  color: #312f96;
 }
 
 #blog .card .card-inner .button.major:hover {
@@ -6664,8 +6730,8 @@ header#topbar nav ul li a:hover {
 }
 
 #about .button.major {
-  border-color: #EEE;
-  color: #EEE;
+  background: rgba(238, 238, 238, 0.8);
+  color: #7c4ea5;
 }
 
 #about .button.major:hover {
@@ -6680,8 +6746,8 @@ footer {
 }
 
 footer .button.major {
-  border-color: #EEE;
-  color: #EEE;
+  background: rgba(238, 238, 238, 0.8);
+  color: #333333;
 }
 
 footer .button.major:hover {
@@ -6689,17 +6755,12 @@ footer .button.major:hover {
   color: #333333;
 }
 
-article {
+footer .button.minor {
+  background: rgba(238, 238, 238, 0.3);
   color: #333333;
-  background: #EEE;
 }
 
-article .button.major {
-  border-color: #312f96;
-  color: #312f96;
-}
-
-article .button.major:hover {
-  background: #312f96;
-  color: #EEE;
+footer .button.minor:hover {
+  background: rgba(238, 238, 238, 0.5);
+  color: #333333;
 }

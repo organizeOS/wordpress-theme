@@ -27,13 +27,13 @@
 		$metas = get_post_meta($query->get_the_id());
 		?>
 
-		<div class="action col-md-8">
+		<h2>Take Action</h2>
+
 			<div class="row align-items-center">
-				<div class="col-4">
+				<div class="col-lg-4">
 					<img src="<?php echo get_the_post_thumbnail_url(); ?>">
 				</div>
-				<div class="col-8">
-					<h2>Take Action</h2>
+				<div class="col-lg-8">
 
 					<h3><?php	the_title(); ?></h3>
 
@@ -42,7 +42,6 @@
 					<a class="button major" href="<?php the_permalink(); ?>"><?php echo $metas['button'][0]; ?></a>
 				</div>
 			</div><!-- .row -->
-		</div>
 
 		<?php
 	}

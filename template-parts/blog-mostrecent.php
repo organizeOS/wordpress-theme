@@ -16,8 +16,8 @@ while ($query->have_posts()) {
         <p><?php the_excerpt(); ?></p>
       </div>
       <div class="card-footer">
-        <h4>by <?php the_author(); ?></h4>
-        <h4><?php the_date(); ?></h4>
+        <h4><span>by <?php the_author(); ?></span><br>
+        on <?php the_date(); ?></h4>
         <a class="button small" href="<?php the_permalink(); ?>">Read More</a>
       </div><!-- .card-footer -->
     </div><!-- .card-inner -->

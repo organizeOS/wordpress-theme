@@ -29,9 +29,13 @@ get_header(); ?>
 	<?php else : ?>
 		<header class="page-header container-fluid" id="hero">
 			<div class="row">
-				<?php get_template_part( 'template-parts/action-item' ); ?>
+				<div class="action col-lg-8">
+					<?php get_template_part( 'template-parts/action-item' ); ?>
+				</div>
 
-				<?php get_template_part( 'template-parts/events-next' ); ?>
+				<div class="event col-lg-4">
+					<?php get_template_part( 'template-parts/events-next' ); ?>
+				</div><!-- .event -->
 			</div>
 		</header><!-- .page-header .grid #hero -->
 
@@ -48,7 +52,7 @@ get_header(); ?>
 					<h2>Our Issues</h2>
 				</div>
 			</div>
-			<div class="row section-content">
+			<div class="row justify-content-center section-content">
 				<?php
 					// embeds the top issues, with an option to show more dynamically or go to archive page to view all for a historical view
 					get_template_part( 'template-parts/issues');
@@ -72,12 +76,17 @@ get_header(); ?>
 				</div>
 			</div>
 
-			<div class="row section-content">
+			<div class="row justify-content-center section-content ">
 				<?php
 					// embeds the next 2 weeks of events in a weekday display, with an option to show more dynamically or go to archive page to view all
 					get_template_part( 'template-parts/events-upcoming');
 				?>
 			</div><!-- .section-content -->
+			<div class="row">
+				<div class="col">
+					<a class="button minor small" href="<?php echo site_url(); ?>/events.ics">Subscribe to Our Events</a>
+				</div>
+			</div>
 		</div><!-- .container -->
 	</div><!-- .section -->
 
@@ -92,7 +101,7 @@ get_header(); ?>
 			</div>
 		</div>
 
-		<div class="row section-content">
+		<div class="row justify-content-center section-content">
 			<?php
 				// embeds the 3 most recent blog posts, with an option to show more dynamically or go to archive page to view all
 				get_template_part( 'template-parts/blog-mostrecent');

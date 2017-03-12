@@ -12,92 +12,30 @@
 
 ?>
 
-<div class="col event card">
-	<h3>Sunday</h3>
+<?php
+
+$events['format_header'] = '';
+$events['format_footer'] = '';
+
+$events['limit'] ='6';
+
+$events['format'] = '
+
+<div class="col-sm-6 col-md-4 col-lg-3 event card">
+	<h3>#_{l, F j}</h3>
 	<div class="card-inner">
-		<h4>Event Title</h4>
-		<h5>Wednesday, March n at 7pm<br>MCPL</h5>
+		<div class="card-block">
 
+			<h4>#_EVENTNAME</h4>
+			<h5>#_12HSTARTTIME <br>
+			#_LOCATIONNAME</h5>
+
+		</div>
 	</div><!-- .card-inner -->
-	<div class="card-footer">
-		<a class="card-link">Event details</a>
-	</div><!-- .card-footer -->
+	<a class="card-link" href="#_EVENTURL">Event details</a>
 </div><!-- .event -->
+';
 
-<div class="col event card">
-	<h3>Monday</h3>
-	<div class="card-inner">
+echo EM_Events::output( $events );
 
-		<h4>Event Title</h4>
-		<h5>Wednesday, March n at 7pm<br>MCPL</h5>
-
-	</div><!-- .card-inner -->
-	<div class="card-footer">
-		<a class="card-link">Event details</a>
-	</div><!-- .card-footer -->
-</div><!-- .event -->
-
-<div class="col event card">
-	<h3>Tuesday</h3>
-	<div class="card-inner">
-
-		<h4>Event Title</h4>
-		<h5>Wednesday, March n at 7pm<br>MCPL</h5>
-
-	</div><!-- .card-inner -->
-	<div class="card-footer">
-		<a class="card-link">Event details</a>
-	</div><!-- .card-footer -->
-</div><!-- .event -->
-
-<div class="col event card">
-	<h3>Wednesday</h3>
-	<div class="card-inner">
-
-		<h4>Event Title</h4>
-		<h5>Wednesday, March n at 7pm<br>MCPL</h5>
-
-	</div><!-- .card-inner -->
-	<div class="card-footer">
-		<a class="card-link">Event details</a>
-	</div><!-- .card-footer -->
-</div><!-- .event -->
-
-<div class="col event card">
-	<h3>Thursday</h3>
-	<div class="card-inner">
-
-		<h4>Event Title</h4>
-		<h5>Wednesday, March n at 7pm<br>MCPL</h5>
-
-	</div><!-- .card-inner -->
-	<div class="card-footer">
-		<a class="card-link">Event details</a>
-	</div><!-- .card-footer -->
-</div><!-- .event -->
-
-<div class="col event card">
-	<h3>Friday</h3>
-	<div class="card-inner">
-
-		<h4>Event Title</h4>
-		<h5>Wednesday, March n at 7pm<br>MCPL</h5>
-
-	</div><!-- .card-inner -->
-	<div class="card-footer">
-		<a class="card-link">Event details</a>
-	</div><!-- .card-footer -->
-</div><!-- .event -->
-
-<div class="col event card">
-	<h3>Saturday</h3>
-	<div class="card-inner">
-
-		<h4>Event Title</h4>
-		<h5>Wednesday, March n at 7pm<br>MCPL</h5>
-
-	</div><!-- .card-inner -->
-	<div class="card-footer">
-		<a class="card-link">Event details</a>
-	</div><!-- .card-footer -->
-</div><!-- .event -->
+?>

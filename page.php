@@ -17,21 +17,28 @@
 
 get_header(); ?>
 
-<div class="wrap">
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+<div id="main" class="site-main" role="main">
 
-			<?php
-			while ( have_posts() ) : the_post();
+	<?php
+	while ( have_posts() ) : the_post(); ?>
 
-				get_template_part( 'template-parts/page/content', 'page' );
+	<header class="entry-header">
+		<?php the_title( '<h2 class="entry-title">', '</h2>' ); ?>
+	</header><!-- .entry-header -->
 
+	<div class="section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<article class="col-lg-10" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+					<?php	the_content(); ?>
+				</article><!-- #post-## -->
+			</div><!-- .row -->
+		</div><!-- .container -->
+	</div><!-- .section -->
 
-			endwhile; // End of the loop.
-			?>
+<?php
+	endwhile; // End of the loop.
+	?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
-</div><!-- .wrap -->
 
 <?php get_footer();

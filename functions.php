@@ -321,7 +321,7 @@ function organizeOS_changepost() {
     global $menu;
     global $submenu;
     $menu[5][0] = 'Blog';
-    $submenu['edit.php'][5][0] = 'Blog';
+    $submenu['edit.php'][5][0] = 'Blog Posts';
     $submenu['edit.php'][10][0] = 'Add Blog Post';
     $submenu['edit.php'][16][0] = 'Blog Tags';
 }

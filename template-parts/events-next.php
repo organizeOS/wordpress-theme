@@ -12,16 +12,26 @@
 
 ?>
 
-<div class="event col-md-4">
-	<h2>Next Major Event</h2>
+<?php
 
-	<h3>Event Title</h3>
-	<h4>Wednesday, March n at 7pm<br>MCPL</h4>
+$args['format_header'] = '';
+$args['format_footer'] = '';
 
-	<p>Brief description</p>
+$args['tag'] = 'major';
+$args['limit'] ='1';
 
-	<div class="button-group">
-		<a class="button minor">Get Directions</a>
-		<a class="button major">RSVP</a>
-	</div>
-</div><!-- .event -->
+$args['format'] = '
+
+<h2>Next Major Event</h2>
+
+<h3>#_EVENTNAME</h3>
+<h4>#_{l, F j}<sup>#_{S}</sup> at #_12HSTARTTIME <br>
+#_LOCATIONNAME</h4>
+
+<p>#_EVENTEXCERPT</p>
+
+<a class="button major" href="#_EVENTURL">Join In</a>
+
+';
+
+echo EM_Events::output( $args );

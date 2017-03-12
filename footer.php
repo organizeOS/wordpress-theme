@@ -14,25 +14,28 @@
 
 ?>
 
-<?php
-	if ( !is_front_page() ) {
-	?>
-		<div class="section events">
-			<div class="container">
-	<?php
-		get_template_part( 'template-parts/events-upcoming' );
-		?>
-				</div><!-- .container -->
-			</div><!-- .section -->
-	<?php
-
-	}
-	?>
 
 
 
 
-<footer id="colophon" class="site-footer" role="contentinfo">
+<footer id="colophon" class="site-footer section" role="contentinfo">
+
+<?php	if ( !is_front_page() ) {	?>
+	<div class="container">
+		<div class="row section-title">
+			<div class="col">
+				<h2>Upcoming Events</h2>
+			</div>
+		</div>
+
+		<div class="row justify-content-center section-content">
+			<?php	get_template_part( 'template-parts/events-upcoming' ); ?>
+		</div><!-- .row -->
+	</div><!-- .container -->
+<?php	}	?>
+
+
+
 
 		<?php
 		get_template_part( 'template-parts/footer/footer', 'widgets' );
