@@ -15,26 +15,16 @@
 <?php
 
 $args['post_type'] = 'organizeos_issues';
-
 $query = new WP_Query( $args );
-
 while ($query->have_posts()) {
 	$query->the_post();
 	$metas = get_post_meta($query->get_the_id());
-	?>
 
-	<div class="col-md-3 col-lg-4 issue">
-
-		<img src="<?php echo get_the_post_thumbnail_url(); ?>">
-
-		<h3><?php	the_title(); ?></h3>
-
-		<p><?php the_excerpt(); ?></p>
-
-		<a class="button major" href="<?php the_permalink(); ?>">Learn More</a>
-
-	</div>
-
-	<?php
-}
 ?>
+
+<div class="col-md-3 col-lg-4 issue">
+	<h3><?php	the_title(); ?></h3>
+	<p><?php the_excerpt(); ?></p>
+</div>
+
+<?php } ?>

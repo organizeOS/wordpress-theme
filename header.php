@@ -35,12 +35,25 @@
 
 		<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php _e( 'Main Menu', 'organizeOSWP' ); ?>">
 
+			<?php if ( is_front_page() ) { ?>
+
 			<ul>
 				<li><a href="#issues">Issues</a></li>
 				<li><a href="#events">Events</a></li>
 				<li><a href="#blog">Updates</a></li>
 				<li><a href="#about">About</a></li>
 			</ul>
+
+			<?php } else { ?>
+
+				<ul>
+					<li><a href="/issues">Issues</a></li>
+					<li><a href="/events">Events</a></li>
+					<li><a href="/blog">Updates</a></li>
+					<li><a href="/about">About</a></li>
+				</ul>
+
+			<?php } ?>
 
 		</nav><!-- #site-navigation -->
 

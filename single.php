@@ -31,7 +31,7 @@ get_header(); ?>
 <div class="section">
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="col-lg-10">
+			<article class="col-lg-10">
 				<?php
 					/* Start the Loop */
 					while ( have_posts() ) : the_post();
@@ -41,7 +41,7 @@ get_header(); ?>
 					endwhile; // End of the loop.
 				?>
 
-			</div>
+			</article>
 		</div><!-- .row -->
 	</div><!-- .container -->
 </div><!-- .section -->

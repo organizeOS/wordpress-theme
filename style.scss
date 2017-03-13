@@ -21,64 +21,78 @@ Use it to make something cool, have fun, and share what you've learned with othe
 @import "assets/css/bootstrap";
 
 
-/* MIXINS, for delicious flavors */
 
-@mixin dark-on-light {
-  color: $brand-dark;
-  background: $brand-light;
-  .button.major {
-    background: rgba($brand-primary, 0.8);
-    color: $brand-light;
-    &:hover {
-      background: $brand-primary;
-      color: $brand-light;
-    }
-  }
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.eot?v=4.7.0');
+  src: url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'), url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'), url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
-@mixin light-on-dark {
-  color: $brand-light;
-  background: $brand-dark;
-  .button.major {
-    background: rgba($brand-light, 0.8);
-    color: $brand-dark;
+
+
+
+/* MIXINS, for delicious flavors */
+
+@mixin dark-on-light($dark: $brand-dark, $light: $brand-light, $accent: $brand-primary) {
+  color: $dark;
+  background: $light;
+  a:not(.button), a:link:not(.button), a:visited:not(.button) {
+    color: $accent;
+    border-bottom: dotted $accent 1px;
+    &:hover, &:active {
+      color: $accent;
+      border-bottom: solid $accent 3px;
+    }
+  }
+  .button {
+    color: $light;
     &:hover {
-      background: $brand-light;
-      color: $brand-dark;
+      color: $light;
+    }
+  }
+  .button.major {
+    background: rgba($accent, 0.8);
+    &:hover {
+      background: $accent;
     }
   }
   .button.minor {
-    background: rgba($brand-light, 0.3);
-    color: $brand-dark;
+    background: rgba($accent, 0.4);
     &:hover {
-      background: rgba($brand-light, 0.5);
-      color: $brand-dark;
+      background: rgba($accent, 0.8);
     }
   }
 }
 
-@mixin brand-primary-bg {
-  background: $brand-primary;
-  color: $brand-light;
+@mixin light-on-dark($light: $brand-light, $dark: $brand-dark) {
+  color: $light;
+  background: $dark;
+  a:not(.button), a:link:not(.button), a:visited:not(.button) {
+    color: $light;
+    border-bottom: dotted $light 1px;
+    &:hover, &:active {
+      color: $light;
+      border-bottom: solid $light 3px;
+    }
+  }
+  .button {
+    color: $dark;
+    &:hover {
+      color: $dark;
+    }
+  }
   .button.major {
-    background: rgba($brand-light, 0.8);
-    color: $brand-primary;
+    background: rgba($light, 0.8);
     &:hover {
-      background: $brand-light;
-      color: $brand-primary;
+      background: $light;
     }
   }
-}
-
-@mixin brand-secondary-bg {
-  background: $brand-secondary;
-  color: $brand-light;
-  .button.major {
-    background: rgba($brand-light, 0.8);
-    color: $brand-secondary;
+  .button.minor {
+    background: rgba($light, 0.4);
     &:hover {
-      background: $brand-light;
-      color: $brand-secondary;
+      background: rgba($light, 0.8);
     }
   }
 }
@@ -86,23 +100,16 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 
 
-@mixin flex-left {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-content: space-around;
 
-  text-align: left;
+@mixin sm-col-margin {
+  @include media-breakpoint-down(sm) {
+    .container > .row > div + div {
+      margin-top: 3rem;
+    }
+  }
 }
 
-@mixin flex-centered {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-content: space-around;
 
-  text-align: center;
-}
 
 @mixin smallcaps {
   font-size: 0.8em;
@@ -112,6 +119,9 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 
 
+@mixin icon {
+  font-family: 'Fontawesome';
+}
 
 
 
@@ -137,13 +147,44 @@ html, body {
 
   font-family: $font;
   font-size: 18px;
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+  font-weight: 300;
+}
+
+h1 {
+  font-size: 2rem;
 }
 
 h2 {
+  font-size: 2rem;
+}
 
+h3 {
+  font-size: 1.6rem;
+}
+
+h4 {
+  font-size: 1.4rem;
+}
+
+h5 {
+  font-size: 1.2rem;
 }
 
 
+p {
+  margin: 0;
+}
+
+p + p {
+  margin-top: 1rem;
+}
 
 
 ul, li {
@@ -151,25 +192,24 @@ ul, li {
 
 
 a, a:link, a:visited {
-  color: $brand-primary;
   text-decoration: none;
 
   &:hover {
-    color: lighten($brand-primary, 20%);
     cursor: pointer;
   }
 }
 
 .button {
-  text-align: center;
   display: inline-block;
   letter-spacing: 0.27em;
   line-height: 1;
   font-family: $font;
   text-transform: uppercase;
+  text-align: center;
   position: relative;
   background: transparent;
   border: none;
+  transition: all 0.25s;
 
   padding: 0.5rem 1.25rem;
   font-size: 0.9rem;
@@ -181,6 +221,7 @@ a, a:link, a:visited {
 
   &:hover {
     cursor: pointer;
+    border: none;
   }
 
   &.major {
@@ -202,6 +243,20 @@ a, a:link, a:visited {
   }
 }
 
+input.button {
+  width: 100%;
+  margin-bottom: 1rem;
+
+  &:hover {
+    cursor: text;
+  }
+
+  &:focus {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 
 
 
@@ -220,13 +275,16 @@ a, a:link, a:visited {
 .container {
 }
 
-.section-title {
-
-
-  text-align: center;
-  margin-bottom: 2rem;
+.row + .row {
+  margin-top: 2rem;
   @include media-breakpoint-up(md) {
-    margin-bottom: 4rem;
+    margin-top: 4rem;
+  }
+}
+
+
+.section-title {
+  @include media-breakpoint-up(md) {
   }
 }
 
@@ -246,13 +304,6 @@ a, a:link, a:visited {
 
 
 .card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-content: space-around;
-
-  text-align: center;
-
   margin: 1rem 0;
 
   .card-inner {
@@ -260,20 +311,30 @@ a, a:link, a:visited {
 
   .card-block {
     padding: 1rem;
+
+    & > *:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+
   }
 
   .card-footer {
     padding: 1rem;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.3);
     h4 {
       font-weight: 200;
     }
+    & > *:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+
   }
   .button {
     background: rgba(0,0,0,0.4);
-    margin-top: 1rem;
+    border: none!important;
     &:hover {
-      background: rgba(0,0,0,0.2);
+      background: rgba(0,0,0,0.6);
+      border: none!important;
     }
   }
   .card-link {
@@ -294,6 +355,7 @@ a, a:link, a:visited {
 article {
   @include dark-on-light;
   background: transparent;
+  text-align: left;
 }
 
 
@@ -365,7 +427,6 @@ header#topbar {
 
 #main {
   @include media-breakpoint-up(lg) {
-    height: 100%;
   }
 }
 
@@ -373,15 +434,12 @@ header#topbar {
 
 .single {
   #main {
-    height: 100%;
   }
   .entry-header {
-    @include flex-centered;
     @include light-on-dark;
 
     background-repeat: repeat;
     background-attachment: fixed;
-    height: 100%;
   }
 }
 
@@ -393,21 +451,19 @@ header#topbar {
 
 
 #hero {
-  @include light-on-dark;
-  padding: 8rem 2rem 6rem 2rem;
+  @include sm-col-margin;
+  @include light-on-dark($brand-primary-lighter, $brand-primary-darker);
 
-  @include media-breakpoint-up(lg) {
-    height: 100%;
+  @include media-breakpoint-up(md) {
+    text-align: left;
   }
 
-  h2 {
-    margin-bottom: 1rem;
-    @include smallcaps;
 
+  h2 {
+    @include smallcaps;
   }
 
   h3 {
-    font-size: 2rem;
     margin-bottom: 1rem;
   }
 
@@ -419,30 +475,39 @@ header#topbar {
     margin-bottom: 3rem;
   }
 
+  .icon-heading {
+    padding-left: 15px;
+    margin-bottom: 3rem;
+
+  }
+
+  .icon {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
   .action {
-
-    img {
-      max-width: 100%;
-    }
-    @include media-breakpoint-up(lg) {
-      border-right: solid 1px $brand-light;
-      padding-right: 2rem;
-
+    .icon::after {
+      @include icon;
+      content: "\f0a1";
     }
   }
 
   .event {
-    @include flex-left;
-    @include media-breakpoint-up(lg) {
-      padding-left: 2rem;
-
+    .icon::after {
+      @include icon;
+      content: "\f133";
     }
-
-
   }
 
 }
 
+.home #hero {
+  .container {
+    padding-top: 4rem;
+  }
+
+}
 
 
 
@@ -455,18 +520,24 @@ header#topbar {
 
 
 #issues {
-  @include dark-on-light;
+  @include dark-on-light($brand-primary-darker, $brand-light, $brand-primary);
+
+  p {
+    height: 2rem;
+    margin: 1rem 0;
+  }
+
 }
 
-#events {
-  @include light-on-dark;
+
+#events-upcoming {
+  @include light-on-dark($brand-secondary-lighter, $brand-secondary-darker);
 
   h3 {
     @include smallcaps;
   }
 
   .card {
-    @include flex-centered;
     .card-inner {
       @include dark-on-light;
     }
@@ -476,16 +547,26 @@ header#topbar {
   }
 }
 
+
 #blog {
+  @include dark-on-light($brand-dark, $brand-light, $brand-primary);
   .card {
-    @include flex-centered;
     .card-inner {
-      @include brand-primary-bg;
+      @include light-on-dark($brand-light, $brand-primary);
+    }
+    .card-block {
+      text-align: left;
+      padding: 1rem;
+      @include media-breakpoint-up(md) {
+        padding: 3rem;
+      }
     }
     .card-footer {
-      text-align: center;
       .button {
         color: $brand-light;
+        &:hover {
+          color: $brand-light;
+        }
       }
     }
   }
@@ -493,12 +574,35 @@ header#topbar {
 
 
 #about {
-  @include brand-secondary-bg;
+  @include light-on-dark($brand-secondary-lighter, $brand-secondary-darker);
 }
 
 
 
 footer {
+  @include sm-col-margin;
   @include light-on-dark;
   padding: 3rem 0;
+
+  h2 {
+    margin-bottom: 2rem;
+  }
+
+  #events {
+    .row {
+      margin: 0;
+    }
+  }
+
+  #site-info {
+    @include media-breakpoint-up(md) {
+      text-align: left;
+    }
+  }
+
+  #newsletter-form {
+    margin: 3rem 0;
+    padding: 1rem;
+    background: rgba($brand-light, 0.1);
+  }
 }

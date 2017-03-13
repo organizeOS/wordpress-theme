@@ -14,27 +14,14 @@
 
 ?>
 
+<?php	if ( !is_front_page() ) {	?>
+	<?php get_template_part( 'template-parts/hero' ); ?>
+<?php	}	?>
 
 
 
 
 <footer id="colophon" class="site-footer section" role="contentinfo">
-
-<?php	if ( !is_front_page() ) {	?>
-	<div class="container">
-		<div class="row section-title">
-			<div class="col">
-				<h2>Upcoming Events</h2>
-			</div>
-		</div>
-
-		<div class="row justify-content-center section-content">
-			<?php	get_template_part( 'template-parts/events-upcoming' ); ?>
-		</div><!-- .row -->
-	</div><!-- .container -->
-<?php	}	?>
-
-
 
 
 		<?php
@@ -54,28 +41,35 @@
 			</nav><!-- .social-navigation -->
 		<?php endif; ?>
 
-		<div class="container">
-			<div class="row site-info">
-				<div class="col-md-6">
-					<h2>The <?php bloginfo( 'name' ); ?> Newsletter</h2>
-					<p>A carefully crafted email featuring thoughts, opinions, and tools for building a better world.</p>
-					<div class="button-group">
-						<input type="text" class="button major" placeholder="Enter Your Email" id="newsletter-signup"></input>
-						<a class="button major">Read Past Issues</a>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<h2><?php bloginfo( 'name' ); ?></h2>
-					<?php get_template_part( 'template-parts/contact'); ?>
-				</div>
-			</div><!-- .site-info -->
+	<div class="container" id="site-info">
+		<div class="row">
+			<div class="col-md-6">
+				<h2>The <?php bloginfo( 'name' ); ?> Newsletter</h2>
+				<p>A carefully crafted email featuring thoughts, opinions, and tools for building a better world.</p>
+					<button class="button major" data-action="newsletter-formshow">Sign Up</button>
+						<div id="newsletter-form" style="display: none;">
+							<div id="newsletter-form-inputs">
+								<input type="text" class="button major" placeholder="Email" id="newsletter-email"></input>
+								<input type="text" class="button major" placeholder="First Name" id="newsletter-firstname"></input>
+								<input type="text" class="button major" placeholder="Last Name" id="newsletter-lastname"></input>
+								<button class="button major" data-action="newsletter-signup">Sign Up</button>
+							</div><!-- #newsletter-form-inputs -->
+							<div id="newsletter-form-response" style="display:none;"></div>
+						</div><!-- #newsletter-form -->
+					<a class="button minor" href="/newsletter">Read Past Issues</a>
+			</div>
+			<div class="col-md-6">
+				<h2><?php bloginfo( 'name' ); ?></h2>
+				<?php get_template_part( 'template-parts/contact'); ?>
+			</div>
+		</div><!-- .site-info -->
 
-			<div class="row">
-				<div class="col">
-					<a href="<?php echo esc_url( __( 'https://organizeos.org/', 'organizeOSWP' ) ); ?>">Powered by organizeOS</a>
-				</div>
-			</div><!-- .row -->
-		</div>
+		<div class="row">
+			<div class="col">
+				<a href="<?php echo esc_url( __( 'https://organizeos.org/', 'organizeOSWP' ) ); ?>">Powered by organizeOS</a>
+			</div>
+		</div><!-- .row -->
+	</div><!-- .container #site-info -->
 
 </footer><!-- #colophon -->
 

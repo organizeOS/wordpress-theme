@@ -27,18 +27,7 @@ get_header(); ?>
 		</header>
 
 	<?php else : ?>
-		<header class="page-header container-fluid" id="hero">
-			<div class="row">
-				<div class="action col-lg-8">
-					<?php get_template_part( 'template-parts/action-item' ); ?>
-				</div>
-
-				<div class="event col-lg-4">
-					<?php get_template_part( 'template-parts/events-next' ); ?>
-				</div><!-- .event -->
-			</div>
-		</header><!-- .page-header .grid #hero -->
-
+		<?php get_template_part( 'template-parts/hero' ); ?>
 	<?php endif; ?>
 
 
@@ -47,54 +36,39 @@ get_header(); ?>
 
 	<div class="section" id="issues">
 		<div class="container">
+
 			<div class="row section-title">
 				<div class="col">
 					<h2>Our Issues</h2>
 				</div>
-			</div>
-			<div class="row justify-content-center section-content">
+			</div><!-- .section-title -->
+
+			<div class="row align-items-center section-content">
 				<?php
 					// embeds the top issues, with an option to show more dynamically or go to archive page to view all for a historical view
 					get_template_part( 'template-parts/issues');
 				?>
-			</div><!-- .row -->
+			</div><!-- .row .section-content -->
+
+			<div class="row section-links">
+				<div class="col">
+					<a href="/issues" class="button major">Learn More</a>
+				</div>
+			</div><!-- .section-links -->
+
 		</div><!-- .container -->
 	</div><!-- .section -->
 
 
 
-
-
-
-
-
-	<div class="section" id="events">
-		<div class="container">
-			<div class="row section-title">
-				<div class="col">
-					<h2>Upcoming Events</h2>
-				</div>
-			</div>
-
-			<div class="row justify-content-center section-content ">
-				<?php
-					// embeds the next 2 weeks of events in a weekday display, with an option to show more dynamically or go to archive page to view all
-					get_template_part( 'template-parts/events-upcoming');
-				?>
-			</div><!-- .section-content -->
-			<div class="row">
-				<div class="col">
-					<a class="button minor small" href="<?php echo site_url(); ?>/events.ics">Subscribe to Our Events</a>
-				</div>
-			</div>
-		</div><!-- .container -->
-	</div><!-- .section -->
+<?php	get_template_part( 'template-parts/events-upcoming' ); ?>
 
 
 
 
 <div class="section" id="blog">
 	<div class="container">
+
 		<div class="row section-title">
 			<div class="col">
 				<h2>Updates from <?php bloginfo( 'name' ); ?></h2>
@@ -107,6 +81,13 @@ get_header(); ?>
 				get_template_part( 'template-parts/blog-mostrecent');
 			?>
 		</div><!-- .section-content -->
+
+		<div class="row section-links">
+			<div class="col">
+				<a href="/blog" class="button major">View All Posts</a>
+			</div>
+		</div><!-- .section-links -->
+
 	</div><!-- .container -->
 </div><!-- .section -->
 
@@ -114,17 +95,23 @@ get_header(); ?>
 
 <div class="section" id="about">
 	<div class="container">
-		<div class="section-title">
-			<h2>Who We Are</h2>
-		</div>
 
-		<div class="section-content">
+		<div class="row section-title">
+			<div class="col">
+				<h2>About <?php bloginfo( 'name' ); ?></h2>
+			</div>
+		</div><!-- .row -->
 
-			<?php
-				// embeds the 3 most recent blog posts, with an option to show more dynamically or go to archive page to view all
-				get_template_part( 'template-parts/about');
-			?>
+		<div class="row section-content">
+			<?php	get_template_part( 'template-parts/about');	?>
 		</div><!-- .section-content -->
+
+		<div class="row section-links">
+			<div class="col">
+				<a href="/about" class="button major">Read Our Story</a>
+			</div>
+		</div><!-- .section-links -->
+
 	</div><!-- .container -->
 </div><!-- .section -->
 

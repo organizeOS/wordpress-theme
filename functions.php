@@ -29,6 +29,15 @@ remove_action( 'admin_print_styles', 'print_emoji_styles' );
 remove_filter( 'the_excerpt', 'wpautop' );
 add_filter( 'feed_links_show_comments_feed', '__return_false' );
 
+
+require_once('inc/MailChimp.php');
+
+
+add_action( 'wp_ajax_organizeos_ajax', 'organizeos_ajax' );
+add_action( 'wp_ajax_nopriv_organizeos_ajax', 'organizeos_ajax' );
+
+
+
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -183,8 +192,11 @@ add_action( 'wp_head', 'organizeOSWP_javascript_detection', 0 );
  */
 function organizeOSWP_scripts() {
 
-	// Theme stylesheet.
+	// Theme stylesheet
 	wp_enqueue_style( 'organizeOSWP-style', get_stylesheet_uri() );
+
+  // Theme scripts
+  wp_enqueue_script( 'organizeOSWP-scripts', get_theme_file_uri( '/assets/js/organizeos.js' ), array( 'jquery' ), '1.0', true );
 
 
 	// Load the html5 shiv.
@@ -204,7 +216,6 @@ function organizeOSWP_scripts() {
 		$organizeOSWP_l10n['icon']           = organizeOSWP_get_svg( array( 'icon' => 'angle-down', 'fallback' => true ) );
 	}
 
-	wp_enqueue_script( 'organizeOSWP-global', get_theme_file_uri( '/assets/js/global.js' ), array( 'jquery' ), '1.0', true );
 
 	wp_enqueue_script( 'jquery-scrollto', get_theme_file_uri( '/assets/js/jquery.scrollTo.js' ), array( 'jquery' ), '2.1.2', true );
 
@@ -481,3 +492,55 @@ function organizeOS_savemeta($post_id, $post) {
 }
 
 add_action('save_post', 'organizeOS_savemeta', 10, 2); // save the custom fields
+
+
+
+
+
+
+
+
+
+
+
+function organizeos_ajax() {
+
+	switch ($_POST['type']) {
+
+
+		case 'morecards':
+			echo organizeos_cards($_POST['post_type'], $_POST['count'], $_POST['offset']);
+			exit();
+		break;
+
+
+		case 'subscribe':
+			$email = sanitize_email($_POST['email']);
+			$firstname = $lastname = '';
+			if (isset($_POST['firstname'])) {
+				$firstname = sanitize_text_field($_POST['firstname']);
+			}
+			if (isset($_POST['lastname'])) {
+				$lastname = sanitize_text_field($_POST['lastname']);
+			}
+			$MailChimp = new \Drewm\MailChimp($apikey);
+			$result = $MailChimp->call('lists/subscribe', array(
+								'id'								=> $listid,
+								'status'            => 'subscribed',
+								'email'							=> array('email' => $email),
+								'merge_fields'      => array('FNAME'=>$firstname, 'LNAME'=>$lastname),
+								'update_existing'		=> true
+            ));
+            echo 'testing!';
+      //print_r($result);
+			exit();
+		break;
+
+
+	}
+}// organizeos_ajax
+
+
+// set these in child themes for MailChimp API
+$apikey = '';
+$listid = '';
