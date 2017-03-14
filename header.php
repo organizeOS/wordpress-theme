@@ -28,12 +28,13 @@
 
 	<header id="topbar" role="banner">
 
-
 		<img src="<?php echo get_template_directory_uri() . '/assets/images/logo.png'; ?>" class="logo">
 
+		<button class="icon hamburger hidden-sm-up"></button>
 
 
-		<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php _e( 'Main Menu', 'organizeOSWP' ); ?>">
+		<nav id="site-navigation" class="main-navigation hidden-xs-down" role="navigation" aria-label="<?php _e( 'Main Menu', 'organizeOSWP' ); ?>">
+
 
 			<?php if ( is_front_page() ) { ?>
 

@@ -10,6 +10,14 @@
  */
 
 
+ require_once('inc/MailChimp.php');
+
+ add_action( 'wp_ajax_organizeos_ajax', 'organizeos_ajax' );
+ add_action( 'wp_ajax_nopriv_organizeos_ajax', 'organizeos_ajax' );
+
+
+
+
  /*
 	* Remove a lot of built-in stuff we don't need.
 	*/
@@ -30,11 +38,6 @@ remove_filter( 'the_excerpt', 'wpautop' );
 add_filter( 'feed_links_show_comments_feed', '__return_false' );
 
 
-require_once('inc/MailChimp.php');
-
-
-add_action( 'wp_ajax_organizeos_ajax', 'organizeos_ajax' );
-add_action( 'wp_ajax_nopriv_organizeos_ajax', 'organizeos_ajax' );
 
 
 

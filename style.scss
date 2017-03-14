@@ -190,12 +190,37 @@ p + p {
 ul, li {
 }
 
+hr {
+  height: 1px;
+  background: $brand-dark;
+  width: 90%;
+
+  &.shortnthick {
+    height: 5px;
+    width: 50px;
+  }
+  &.top {
+    margin: 2rem auto 0 auto;
+    @include media-breakpoint-up(sm) {
+      margin: 4rem auto 0 auto;
+    }
+  }
+  &.bottom {
+    margin: 0 auto 2rem auto;
+    @include media-breakpoint-up(sm) {
+      margin: 0 auto 4rem auto;
+    }
+  }
+}
+
 
 a, a:link, a:visited {
   text-decoration: none;
+  border-bottom: dotted 1px inherit;
 
   &:hover {
     cursor: pointer;
+    border-bottom: solid 3px inherit;
   }
 }
 
@@ -233,7 +258,7 @@ a, a:link, a:visited {
     font-size: 0.8rem;
   }
 
-  .icon {
+  .buttonicon {
     height: 18px;
     margin-top: -9px;
     position: absolute;
@@ -257,7 +282,14 @@ input.button {
   }
 }
 
+button {
+  &.icon {
+    @include icon;
+  }
+  border: none;
+  background: transparent;
 
+}
 
 
 
@@ -352,14 +384,6 @@ input.button {
 
 
 
-article {
-  @include dark-on-light;
-  background: transparent;
-  text-align: left;
-}
-
-
-
 
 
 
@@ -376,13 +400,18 @@ header#topbar {
   top: 0;
   left: 0;
 
-  padding: 0.5rem 3rem;
+  padding: 0.5rem;
+  @include media-breakpoint-up(md) {
+    padding: 1rem 3rem;
+  }
 
   width: 100%;
   background: transparent; //change to $brand-light with script
 
   display: flex;
   align-items: center;
+  flex-wrap: nowrap;
+  justify-content: space-around;
 
   img.logo {
     height: 50px;
@@ -390,8 +419,21 @@ header#topbar {
     display: inline-block;
   }
 
+  button.icon {
+    &.hamburger {
+      color: $brand-light;
+      display: inline-block;
+      &::after {
+        content: "\f0c9";
+        font-size: 1.5rem;
+        padding: 1rem;
+      }
+    }
+  }
+
   nav {
     display: inline-block;
+    height: 50px;
     ul {
       list-style-type: none;
       display: inline-block;
@@ -404,20 +446,27 @@ header#topbar {
           display: block;
           height: 100%;
           padding: 0.5rem 1rem;
-          color: $brand-light;
 
+          color: $brand-primary;
           &:hover {
             background: $brand-primary;
             color: $brand-light;
-            border-radius: $border-radius;
           }
         }
       }
     }
   }
-
 }
 
+.home, .single {
+  & header#topbar nav a {
+    color: $brand-light;
+    &:hover {
+      background: $brand-light;
+      color: $brand-primary-darker;
+    }
+  }
+}
 
 
 
@@ -426,22 +475,71 @@ header#topbar {
 
 
 #main {
-  @include media-breakpoint-up(lg) {
-  }
+  height: 100%;
 }
 
 
 
-.single {
-  #main {
-  }
-  .entry-header {
-    @include light-on-dark;
+.entry-header {
 
+  padding: 6rem 0;
+
+  h2 {
+    font-size: 3em;
+    font-weight: 400;
+    text-align: center;
+  }
+
+
+}
+
+body.single {
+
+  .entry-header {
+    @include light-on-dark($brand-primary-lighter, $brand-primary-darker);
+    background-image: src('/assets/images/default-bg.jpg');
     background-repeat: repeat;
     background-attachment: fixed;
   }
 }
+
+.entry-content {
+  margin-bottom: 4rem;
+
+  article {
+    text-align: justify;
+    color: $brand-text;
+    font-weight: 400;
+    @include media-breakpoint-up(md) {
+      font-size: 1.2em;
+      line-height: 1.8;
+    }
+  }
+}
+
+
+.page {
+  .entry-content {
+    margin-top: 3rem;
+  }
+}
+
+.page-header {
+  @include light-on-dark($brand-primary-lighter, $brand-primary-darker);
+  padding: 3rem;
+  font-weight: 400;
+  text-align: center;
+  margin: 0 0 1.5rem 0;
+  @include media-breakpoint-up(sm) {
+    float: left;
+    margin: 0 1.5rem 1rem 0;
+  }
+  h2 {
+    font-size: 3em;
+  }
+}
+
+
 
 
 
@@ -472,13 +570,18 @@ header#topbar {
   }
 
   p {
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
+    @include media-breakpoint-up(sm) {
+      margin-bottom: 3rem;
+    }
   }
 
   .icon-heading {
     padding-left: 15px;
-    margin-bottom: 3rem;
-
+    margin-bottom: 1rem;
+    @include media-breakpoint-up(sm) {
+      margin-bottom: 3rem;
+    }
   }
 
   .icon {
@@ -512,13 +615,6 @@ header#topbar {
 
 
 
-
-
-
-
-
-
-
 #issues {
   @include dark-on-light($brand-primary-darker, $brand-light, $brand-primary);
 
@@ -530,6 +626,8 @@ header#topbar {
 }
 
 
+
+
 #events-upcoming {
   @include light-on-dark($brand-secondary-lighter, $brand-secondary-darker);
 
@@ -539,13 +637,15 @@ header#topbar {
 
   .card {
     .card-inner {
-      @include dark-on-light;
+      @include dark-on-light($brand-secondary-darker, $brand-secondary-lighter);
     }
     .card-link {
-      color: $brand-light;
+      color: $brand-secondary-lighter;
     }
   }
 }
+
+
 
 
 #blog {
@@ -573,9 +673,12 @@ header#topbar {
 }
 
 
+
+
 #about {
   @include light-on-dark($brand-secondary-lighter, $brand-secondary-darker);
 }
+
 
 
 

@@ -22,14 +22,16 @@ get_header(); ?>
 	<?php
 	while ( have_posts() ) : the_post(); ?>
 
-	<header class="entry-header">
-		<?php the_title( '<h2 class="entry-title">', '</h2>' ); ?>
-	</header><!-- .entry-header -->
-
-	<div class="section">
+	<div class="section entry-content">
 		<div class="container">
 			<div class="row justify-content-center">
 				<article class="col-lg-10" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+					<header class="page-header">
+							<?php the_title( '<h2 class="entry-title">', '</h2>' ); ?>
+					</header><!-- .page-header -->
+
+
 					<?php	the_content(); ?>
 				</article><!-- #post-## -->
 			</div><!-- .row -->
