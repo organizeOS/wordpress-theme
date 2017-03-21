@@ -1,6 +1,6 @@
 <?php
 /**
- * Template for displaying search forms in organizeOS WP
+ * Template for displaying search forms
  *
  * @package WordPress
  * @subpackage organizeOS_WP
@@ -15,6 +15,6 @@
 	<label for="<?php echo $unique_id; ?>">
 		<span class="screen-reader-text"><?php echo _x( 'Search for:', 'label', 'organizeOSWP' ); ?></span>
 	</label>
-	<input type="search" id="<?php echo $unique_id; ?>" class="search-field" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', 'organizeOSWP' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
-	<button type="submit" class="search-submit"><?php echo organizeOSWP_get_svg( array( 'icon' => 'search' ) ); ?><span class="screen-reader-text"><?php echo _x( 'Search', 'submit button', 'organizeOSWP' ); ?></span></button>
+	<input type="search" id="<?php echo $unique_id; ?>" class="search-field" placeholder="Search" value="<?php echo get_search_query(); ?>" name="s" />
+	<button type="submit" class="search-submit"><span class="screen-reader-text"><?php echo _x( 'Search', 'submit button', 'organizeOSWP' ); ?></span></button>
 </form>

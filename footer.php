@@ -27,7 +27,6 @@
 
 
 		<?php
-		get_template_part( 'template-parts/footer/footer', 'widgets' );
 
 		if ( has_nav_menu( 'social' ) ) : ?>
 			<nav class="social-navigation" role="navigation" aria-label="<?php _e( 'Footer Social Links Menu', 'organizeOSWP' ); ?>">
@@ -48,27 +47,26 @@
 			<div class="col-md-6">
 				<h2>The <?php bloginfo( 'name' ); ?> Newsletter</h2>
 				<p>A carefully crafted email featuring thoughts, opinions, and tools for building a better world.</p>
-					<button class="button major" data-action="newsletter-formshow">Sign Up</button>
-						<div id="newsletter-form" style="display: none;">
-							<div id="newsletter-form-inputs">
-								<input type="text" class="button major" placeholder="Email" id="newsletter-email"></input>
-								<input type="text" class="button major" placeholder="First Name" id="newsletter-firstname"></input>
-								<input type="text" class="button major" placeholder="Last Name" id="newsletter-lastname"></input>
-								<button class="button major" data-action="newsletter-signup">Sign Up</button>
-							</div><!-- #newsletter-form-inputs -->
-							<div id="newsletter-form-response" style="display:none;"></div>
-						</div><!-- #newsletter-form -->
-					<a class="button minor" href="/newsletter">Read Past Issues</a>
-			</div>
-			<div class="col-md-6">
-				<h2><?php bloginfo( 'name' ); ?></h2>
-				<?php get_template_part( 'template-parts/contact'); ?>
-			</div>
-		</div><!-- .site-info -->
+				<div id="newsletter-form">
+					<div id="newsletter-form-inputs">
+						<input type="text" class="button major" placeholder="Email" id="newsletter-email"></input>
+						<input type="text" class="button major" placeholder="First Name" id="newsletter-firstname"></input>
+						<input type="text" class="button major" placeholder="Last Name" id="newsletter-lastname"></input>
+						<button class="button major" data-action="newsletter-signup">Sign Up</button>
+					</div><!-- #newsletter-form-inputs -->
+					<div id="newsletter-form-response" style="display:none;"></div>
+				</div><!-- #newsletter-form -->
+			<a class="button minor" href="/newsletter">Read Past Issues</a>
+		</div>
+		<div class="col-md-6">
+			<h2><?php bloginfo( 'name' ); ?></h2>
+			<?php get_template_part( 'template-parts/contact'); ?>
+		</div>
+	</div><!-- .site-info -->
 
 		<div class="row">
 			<div class="col">
-				<a href="<?php echo esc_url( __( 'https://organizeos.org/', 'organizeOSWP' ) ); ?>">Powered by organizeOS</a>
+				<a href="https://organizeos.org">Powered by organizeOS</a>
 			</div>
 		</div><!-- .row -->
 	</div><!-- .container #site-info -->

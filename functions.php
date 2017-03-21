@@ -15,7 +15,7 @@
  add_action( 'wp_ajax_organizeos_ajax', 'organizeos_ajax' );
  add_action( 'wp_ajax_nopriv_organizeos_ajax', 'organizeos_ajax' );
 
-
+show_admin_bar(false);
 
 
  /*
@@ -114,7 +114,7 @@ function organizeOSWP_setup() {
 add_action( 'after_setup_theme', 'organizeOSWP_setup' );
 
 
-add_filter( 'wp_resource_hints', 'organizeOSWP_resource_hints', 10, 2 );
+//add_filter( 'wp_resource_hints', 'organizeOSWP_resource_hints', 10, 2 );
 
 /**
  * Register widget area.

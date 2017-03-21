@@ -28,7 +28,7 @@
 
 	<header id="topbar" role="banner">
 
-		<img src="<?php echo get_template_directory_uri() . '/assets/images/logo.png'; ?>" class="logo">
+		<img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/logo.png'; ?>" class="logo">
 
 		<button class="icon hamburger hidden-sm-up"></button>
 
@@ -43,6 +43,9 @@
 				<li><a href="#events">Events</a></li>
 				<li><a href="#blog">Updates</a></li>
 				<li><a href="#about">About</a></li>
+
+				<li><?php get_search_form(); ?></li>
+
 			</ul>
 
 			<?php } else { ?>
@@ -52,6 +55,9 @@
 					<li><a href="/events">Events</a></li>
 					<li><a href="/blog">Updates</a></li>
 					<li><a href="/about">About</a></li>
+
+					<li><?php get_search_form(); ?></li>
+
 				</ul>
 
 			<?php } ?>

@@ -23,5 +23,4 @@ while ($query->have_posts()) {
     </div><!-- .card-inner -->
   </div>
 
-<?php }
-?>
+<?php } ?>
