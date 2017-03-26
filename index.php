@@ -18,18 +18,7 @@
 get_header(); ?>
 
 
-<div id="main" class="main-index">
-
-
-	<?php if ( !is_front_page() ) : ?>
-		<header class="page-header">
-			<h2 class="page-title"><?php single_post_title(); ?></h2>
-		</header>
-
-	<?php else : ?>
-		<?php get_template_part( 'template-parts/hero' ); ?>
-	<?php endif; ?>
-
+	<?php get_template_part( 'template-parts/hero' ); ?>
 
 
 
@@ -96,6 +85,5 @@ get_header(); ?>
 <?php	get_template_part( 'template-parts/about');	?>
 
 
-	<?php get_sidebar(); ?>
 
 <?php get_footer();

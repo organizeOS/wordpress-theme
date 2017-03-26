@@ -10,10 +10,10 @@
  */
 
 
- require_once('inc/MailChimp.php');
+require_once('inc/MailChimp.php');
 
- add_action( 'wp_ajax_organizeos_ajax', 'organizeos_ajax' );
- add_action( 'wp_ajax_nopriv_organizeos_ajax', 'organizeos_ajax' );
+add_action( 'wp_ajax_organizeos_ajax', 'organizeos_ajax' );
+add_action( 'wp_ajax_nopriv_organizeos_ajax', 'organizeos_ajax' );
 
 show_admin_bar(false);
 
@@ -155,8 +155,7 @@ function organizeOSWP_widgets_init() {
 add_action( 'widgets_init', 'organizeOSWP_widgets_init' );
 
 /**
- * Replaces "[...]" (appended to automatically generated excerpts) with ... and
- * a 'Continue reading' link.
+ * Replaces "[...]" (appended to automatically generated excerpts) with ... and changes auto excerpt length
  *
  * @since organizeOS WP 1.0
  *
@@ -172,21 +171,13 @@ function organizeOSWP_excerpt_more( $link ) {
 		/* translators: %s: Name of current post */
 		sprintf( __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'organizeOSWP' ), get_the_title( get_the_ID() ) )
 	);
-	return ' &hellip; ' . $link;
+	return '&hellip;';
+}
+function organizeOSWP_excerpt_length( $length ) {
+    return 20;
 }
 add_filter( 'excerpt_more', 'organizeOSWP_excerpt_more' );
-
-/**
- * Handles JavaScript detection.
- *
- * Adds a `js` class to the root `<html>` element when JavaScript is detected.
- *
- * @since organizeOS WP 1.0
- */
-function organizeOSWP_javascript_detection() {
-	echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
-}
-add_action( 'wp_head', 'organizeOSWP_javascript_detection', 0 );
+add_filter( 'excerpt_length', 'organizeOSWP_excerpt_length', 999 );
 
 
 
@@ -325,6 +316,27 @@ add_action( 'after_switch_theme', 'organizeOS_setdefaults' );
 
 
 
+
+
+
+add_filter('get_the_archive_title', function ($title) {
+
+  if(is_category()) {$title = single_cat_title('', false);}
+	elseif ( is_tag() ) {$title = sprintf( __( '%s' ), single_tag_title( '', false ) );}
+	elseif ( is_author() ) {$title = sprintf( __( 'All posts by %s' ), '<span class="vcard">' . get_the_author() . '</span>' );}
+	elseif ( is_year() ) {$title = sprintf( __( 'All posts in %s' ), get_the_date( _x( 'Y', 'yearly archives date format' ) ) );}
+	elseif ( is_month() ) {$title = sprintf( __( 'All posts in %s' ), get_the_date( _x( 'F Y', 'monthly archives date format' ) ) );}
+	elseif ( is_day() ) {$title = sprintf( __( 'All posts on %s' ), get_the_date( _x( 'F j, Y', 'daily archives date format' ) ) );}
+	elseif ( is_post_type_archive() ) {$title = sprintf( __( 'All %s' ), post_type_archive_title( '', false ) );}
+	else {$title = __( 'Archives' );}
+
+  return $title;
+
+});
+
+
+
+
 // Custom post types for organizeOS
 
 
@@ -339,6 +351,35 @@ function organizeOS_changepost() {
     $submenu['edit.php'][10][0] = 'Add Blog Post';
     $submenu['edit.php'][16][0] = 'Blog Tags';
 }
+
+add_action('init', 'my_init');
+
+function my_init()
+{
+   $args = objectToArray( get_post_type_object('post') );
+   $args['has_archive'] = true;
+   $args['rewrite'] = array(
+      'slug' => 'blog',
+      'with_front' => FALSE,
+   );
+   register_post_type('post', $args);
+}
+
+function objectToArray( $object )
+{
+   if( !is_object( $object ) && !is_array( $object ) )
+   {
+      return $object;
+   }
+
+   if( is_object( $object ) )
+   {
+      $object = get_object_vars( $object );
+   }
+
+   return array_map('objectToArray', $object);
+}
+
 
 
 // Create 'Actions' and 'Issues' custom post types

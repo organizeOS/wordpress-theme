@@ -12,48 +12,54 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php
-			if ( 'post' === get_post_type() ) :
-				echo '<div class="entry-meta">';
-					if ( is_single() ) :
-						organizeOSWP_posted_on();
-					else :
-						echo organizeOSWP_time_link();
-					endif;
-				echo '</div><!-- .entry-meta -->';
-			endif;
+<article id="post-<?php the_ID(); ?>" class="section">
 
-			if ( is_single() ) {
-				the_title( '<h2 class="entry-title">', '</h2>' );
-			} else {
-				the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
-			}
+<div class="container">
+
+	<header class="row entry-header">
+		<div class="col">
+			<?php if ( has_post_thumbnail() && ( is_single() || ( is_page() && ! organizeOSWP_is_frontpage() ) ) ) {
+				echo '<img src="' . get_the_post_thumbnail_url() . '">';
+				} ?>
+
+			<h2 class="entry-title"><?php the_title(); ?></h2>
+
+			<?php	if ( 'post' === get_post_type() ) { ?>
+				<div class="entry-meta">
+					<p>by <?php the_author_posts_link(); ?><br>
+					posted on <?php the_date(); ?></p>
+					<hr class="shortnthick top">
+				</div><!-- .entry-meta -->
+			<?php } ?>
+
+		</div>
+	</header>
+
+
+	<div class="row justify-content-center entry-content">
+		<div class="col-lg-10">
+			<?php	the_content(); ?>
+		</div>
+	</div><!-- .row -->
+
+
+	<?php	if ( 'post' === get_post_type() ) { ?>
+	<div class="row justify-content-center entry-footer">
+		<div class="col-8 col-sm-6 entry-meta">
+			<hr class="shortnthick bottom">
+			<p>by <?php the_author_posts_link(); ?><br>
+			posted on <?php echo get_the_date(); ?></p>
+			<p><?php echo the_author_meta('user_description'); ?></p>
+		</div><!-- .entry-meta -->
+
+		<?php the_post_navigation( array(
+			'prev_text' => '<span class="screen-reader-text">Previous Post</span><span aria-hidden="true" class="nav-subtitle">Previous</span> <span class="nav-title">%title</span>',
+			'next_text' => '<span class="screen-reader-text">Next Post</span><span aria-hidden="true" class="nav-subtitle">Next</span> <span class="nav-title">%title</span>',
+		) );
 		?>
-	</header><!-- .entry-header -->
+	</div>
 
-	<?php if ( '' !== get_the_post_thumbnail() && ! is_single() ) : ?>
-		<div class="post-thumbnail">
-			<a href="<?php the_permalink(); ?>">
-				<?php the_post_thumbnail( 'organizeOSWP-featured-image' ); ?>
-			</a>
-		</div><!-- .post-thumbnail -->
-	<?php endif; ?>
+	<?php } ?>
 
-	<div class="entry-content">
-		<?php
-			/* translators: %s: Name of current post */
-			the_content( sprintf(
-				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'organizeOSWP' ),
-				get_the_title()
-			) );
-
-		?>
-	</div><!-- .entry-content -->
-
-	<?php if ( is_single() ) : ?>
-		<?php organizeOSWP_entry_footer(); ?>
-	<?php endif; ?>
-
+</div><!-- .container -->
 </article><!-- #post-## -->

@@ -17,28 +17,12 @@
 
 get_header(); ?>
 
-<div id="main" class="site-main" role="main">
 
 	<?php
-	while ( have_posts() ) : the_post(); ?>
+	while ( have_posts() ) : the_post();
 
-	<div class="section page-content">
-		<div class="container">
-			<div class="row justify-content-center">
-				<article class="col-lg-10" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	get_template_part( 'template-parts/post/content', get_post_format() );
 
-					<header class="page-header">
-							<?php the_title( '<h2 class="entry-title">', '</h2>' ); ?>
-					</header><!-- .page-header -->
-
-
-					<?php	the_content(); ?>
-				</article><!-- #post-## -->
-			</div><!-- .row -->
-		</div><!-- .container -->
-	</div><!-- .section -->
-
-<?php
 	endwhile; // End of the loop.
 	?>
 

@@ -49,9 +49,9 @@
 				<p>A carefully crafted email featuring thoughts, opinions, and tools for building a better world.</p>
 				<div id="newsletter-form">
 					<div id="newsletter-form-inputs">
-						<input type="text" class="button major" placeholder="Email" id="newsletter-email"></input>
-						<input type="text" class="button major" placeholder="First Name" id="newsletter-firstname"></input>
-						<input type="text" class="button major" placeholder="Last Name" id="newsletter-lastname"></input>
+						<input type="text" class="" placeholder="Email" id="newsletter-email"></input>
+						<input type="text" class="" placeholder="First Name" id="newsletter-firstname"></input>
+						<input type="text" class="" placeholder="Last Name" id="newsletter-lastname"></input>
 						<button class="button major" data-action="newsletter-signup">Sign Up</button>
 					</div><!-- #newsletter-form-inputs -->
 					<div id="newsletter-form-response" style="display:none;"></div>

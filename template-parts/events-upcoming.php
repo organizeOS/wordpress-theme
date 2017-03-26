@@ -19,18 +19,21 @@ $events['format_header'] = '';
 $events['format_footer'] = '';
 $events['limit'] ='6';
 $events['format'] = '
-<div class="col-sm-6 col-md-4 col-lg-3 event card">
+<div class="col-sm-6 col-md-6 col-lg-6 col-xl-4 event card">
 	<h3>#_{l, F j}</h3>
 	<div class="card-inner">
 		<div class="card-block">
 
 			<h4>#_EVENTNAME</h4>
-			<p>#_12HSTARTTIME <br>
-			#_LOCATIONNAME</p>
+			<p>#_12HSTARTTIME</p>
+			<p>#_LOCATIONNAME</p>
 
 		</div>
 	</div><!-- .card-inner -->
-	<a class="button card-link" href="#_EVENTURL">Event details</a>
+	<div class="card-links">
+		<a class="button card-link" href="#_EVENTICALURL">Add to Calendar</a>
+		<a class="button card-link" href="#_EVENTURL">Details</a>
+	</div>
 </div><!-- .event -->
 ';
 ?>
@@ -45,7 +48,7 @@ $events['format'] = '
 			</div><!-- .row .section-title -->
 		</div>
 
-		<div class="row justify-content-center section-content">
+		<div class="row justify-content-center section-content cards">
 			<?php echo EM_Events::output( $events ); ?>
 		</div><!-- .row .section-content -->
 

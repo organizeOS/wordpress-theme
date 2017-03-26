@@ -12,25 +12,25 @@
 
 get_header(); ?>
 
-		<div id="main" class="site-main" role="main">
 
 
-				<div class="section page-content">
-					<div class="container">
-						<div class="row">
-							<div class="col">
+<div class="section">
+	<div class="container">
 
-								<header class="page-header">
-									<h1 class="page-title">Resource not found</h1>
-								</header><!-- .page-header -->
+		<header class="row entry-header">
+			<div class="col">
+				<h1 class="page-title">Resource not found</h1>
+			</div>
+		</header><!-- .page-header -->
 
-								<p>The address entered does not seem to work.</p>
+		<div class="row justify-content-center entry-content">
+			<div class="col-lg-10">
+				<p>The address entered does not seem to work.</p>
+			</div>
+		</div><!-- .row -->
 
-							</div>
-						</div><!-- .row -->
-					</div><!-- .container -->
-				</div><!-- .page-content -->
+	</div><!-- .container -->
+</div><!-- .section -->
 
-		</div><!-- #main -->
 
 <?php get_footer();
