@@ -18,7 +18,7 @@
 
 	<header class="row entry-header">
 		<div class="col">
-			<?php if ( has_post_thumbnail() && ( is_single() || ( is_page() && ! organizeOSWP_is_frontpage() ) ) ) {
+			<?php if ( has_post_thumbnail() && ( is_single() || ( is_page() && ! organizeOS_is_frontpage() ) ) ) {
 				echo '<img src="' . get_the_post_thumbnail_url() . '">';
 				} ?>
 

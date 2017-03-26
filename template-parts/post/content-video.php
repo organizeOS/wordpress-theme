@@ -14,7 +14,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php
 		if ( is_sticky() && is_home() ) :
-			echo organizeOSWP_get_svg( array( 'icon' => 'thumb-tack' ) );
+			echo organizeOS_get_svg( array( 'icon' => 'thumb-tack' ) );
 		endif;
 	?>
 	<header class="entry-header">
@@ -22,10 +22,10 @@
 			if ( 'post' === get_post_type() ) :
 				echo '<div class="entry-meta">';
 					if ( is_single() ) :
-						organizeOSWP_posted_on();
+						organizeOS_posted_on();
 					else :
-						echo organizeOSWP_time_link();
-						organizeOSWP_edit_link();
+						echo organizeOS_time_link();
+						organizeOS_edit_link();
 					endif;
 				echo '</div><!-- .entry-meta -->';
 			endif;
@@ -51,7 +51,7 @@
 	<?php if ( '' !== get_the_post_thumbnail() && ! is_single() && empty( $video ) ) : ?>
 		<div class="post-thumbnail">
 			<a href="<?php the_permalink(); ?>">
-				<?php the_post_thumbnail( 'organizeOSWP-featured-image' ); ?>
+				<?php the_post_thumbnail( 'organizeOS-featured-image' ); ?>
 			</a>
 		</div><!-- .post-thumbnail -->
 	<?php endif; ?>
@@ -75,12 +75,12 @@
 
 			/* translators: %s: Name of current post */
 			the_content( sprintf(
-				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'organizeOSWP' ),
+				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'organizeOS' ),
 				get_the_title()
 			) );
 
 			wp_link_pages( array(
-				'before'      => '<div class="page-links">' . __( 'Pages:', 'organizeOSWP' ),
+				'before'      => '<div class="page-links">' . __( 'Pages:', 'organizeOS' ),
 				'after'       => '</div>',
 				'link_before' => '<span class="page-number">',
 				'link_after'  => '</span>',
@@ -91,7 +91,7 @@
 	</div><!-- .entry-content -->
 
 	<?php if ( is_single() ) : ?>
-		<?php organizeOSWP_entry_footer(); ?>
+		<?php organizeOS_entry_footer(); ?>
 	<?php endif; ?>
 
 </article><!-- #post-## -->

@@ -20,13 +20,13 @@
 		<?php if ( 'post' === get_post_type() ) : ?>
 			<div class="entry-meta">
 				<?php
-					echo organizeOSWP_time_link();
-					organizeOSWP_edit_link();
+					echo organizeOS_time_link();
+					organizeOS_edit_link();
 				?>
 			</div><!-- .entry-meta -->
 		<?php elseif ( 'page' === get_post_type() && get_edit_post_link() ) : ?>
 			<div class="entry-meta">
-				<?php organizeOSWP_edit_link(); ?>
+				<?php organizeOS_edit_link(); ?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
 

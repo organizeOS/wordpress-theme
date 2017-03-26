@@ -45,9 +45,9 @@ get_header(); ?>
 			endwhile;
 
 			the_posts_pagination( array(
-				'prev_text' => organizeOSWP_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'organizeOSWP' ) . '</span>',
-				'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'organizeOSWP' ) . '</span>' . organizeOSWP_get_svg( array( 'icon' => 'arrow-right' ) ),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'organizeOSWP' ) . ' </span>',
+				'prev_text' => organizeOS_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'organizeOS' ) . '</span>',
+				'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'organizeOS' ) . '</span>' . organizeOS_get_svg( array( 'icon' => 'arrow-right' ) ),
+				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'organizeOS' ) . ' </span>',
 			) );
 
 		else :

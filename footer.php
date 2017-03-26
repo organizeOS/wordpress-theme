@@ -29,14 +29,14 @@
 		<?php
 
 		if ( has_nav_menu( 'social' ) ) : ?>
-			<nav class="social-navigation" role="navigation" aria-label="<?php _e( 'Footer Social Links Menu', 'organizeOSWP' ); ?>">
+			<nav class="social-navigation" role="navigation" aria-label="<?php _e( 'Footer Social Links Menu', 'organizeOS' ); ?>">
 				<?php
 					wp_nav_menu( array(
 						'theme_location' => 'social',
 						'menu_class'     => 'social-links-menu',
 						'depth'          => 1,
 						'link_before'    => '<span class="screen-reader-text">',
-						'link_after'     => '</span>' . organizeOSWP_get_svg( array( 'icon' => 'chain' ) ),
+						'link_after'     => '</span>' . organizeOS_get_svg( array( 'icon' => 'chain' ) ),
 					) );
 				?>
 			</nav><!-- .social-navigation -->

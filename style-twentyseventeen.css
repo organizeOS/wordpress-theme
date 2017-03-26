@@ -1,13 +1,13 @@
 /*
 Theme Name: organizeOS WP
-Theme URI: https://wordpress.org/themes/organizeOSWP/
+Theme URI: https://wordpress.org/themes/organizeOS/
 Author: the WordPress team
 Author URI: https://wordpress.org/
 Description: organizeOS WP brings your site to life with header video and immersive featured images. With a focus on business sites, it features multiple sections on the front page as well as widgets, navigation and social menus, a logo, and more. Personalize its asymmetrical grid with a custom color scheme and showcase your multimedia content with post formats. Our default theme for 2017 works great in many languages, for any abilities, and on any device.
 Version: 1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: organizeOSWP
+Text Domain: organizeOS
 Tags: one-column, two-columns, right-sidebar, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
 
 This theme, like WordPress, is licensed under the GPL.
@@ -1635,8 +1635,8 @@ body:not(.title-tagline-hidden) .site-branding-text {
 	position: relative;
 }
 
-.has-header-image.organizeOSWP-front-page .custom-header,
-.has-header-video.organizeOSWP-front-page .custom-header,
+.has-header-image.organizeOS-front-page .custom-header,
+.has-header-video.organizeOS-front-page .custom-header,
 .has-header-image.home.blog .custom-header,
 .has-header-video.home.blog .custom-header {
 	display: table;
@@ -1716,7 +1716,7 @@ body:not(.title-tagline-hidden) .site-branding-text {
 	top: 62px;
 }
 
-.has-header-image:not(.organizeOSWP-front-page):not(.home) .custom-header-media img {
+.has-header-image:not(.organizeOS-front-page):not(.home) .custom-header-media img {
 	bottom: 0;
 	position: absolute;
 	top: auto;
@@ -1731,7 +1731,7 @@ body:not(.title-tagline-hidden) .site-branding-text {
 	.has-header-image .custom-header-media img,
 	.has-header-video .custom-header-media video,
 	.has-header-video .custom-header-media iframe,
-	.has-header-image:not(.organizeOSWP-front-page):not(.home) .custom-header-media img {
+	.has-header-image:not(.organizeOS-front-page):not(.home) .custom-header-media img {
 		height: 100%;
 		left: 0;
 		-o-object-fit: cover;
@@ -1751,8 +1751,8 @@ body:not(.has-header-image):not(.has-header-video) .custom-header-media {
 	display: none;
 }
 
-.has-header-image.organizeOSWP-front-page .site-branding,
-.has-header-video.organizeOSWP-front-page .site-branding,
+.has-header-image.organizeOS-front-page .site-branding,
+.has-header-video.organizeOS-front-page .site-branding,
 .has-header-image.home.blog .site-branding,
 .has-header-video.home.blog .site-branding {
 	display: table-cell;
@@ -1764,11 +1764,11 @@ body:not(.has-header-image):not(.has-header-video) .custom-header-media {
 13.2 Front Page
 --------------------------------------------------------------*/
 
-.organizeOSWP-front-page .site-content {
+.organizeOS-front-page .site-content {
 	padding: 0;
 }
 
-.organizeOSWP-panel {
+.organizeOS-panel {
 	overflow: hidden;
 	position: relative;
 }
@@ -1796,7 +1796,7 @@ body:not(.has-header-image):not(.has-header-video) .custom-header-media {
 	top: 100px;
 }
 
-.organizeOSWP-front-page article:not(.has-post-thumbnail):not(:first-child) {
+.organizeOS-front-page article:not(.has-post-thumbnail):not(:first-child) {
 	border-top: 1px solid #ddd;
 }
 
@@ -1811,19 +1811,19 @@ body:not(.has-header-image):not(.has-header-video) .custom-header-media {
 
 /* Panel edit link */
 
-.organizeOSWP-panel .edit-link {
+.organizeOS-panel .edit-link {
 	display: block;
 	margin: 0.3em 0 0;
 }
 
-.organizeOSWP-panel .entry-header .edit-link {
+.organizeOS-panel .entry-header .edit-link {
 	font-size: 14px;
 	font-size: 0.875rem;
 }
 
 /* Front Page - Recent Posts */
 
-.organizeOSWP-front-page .panel-content .recent-posts article {
+.organizeOS-front-page .panel-content .recent-posts article {
 	border: 0;
 	color: #333;
 	margin-bottom: 3em;
@@ -1841,7 +1841,7 @@ body:not(.has-header-image):not(.has-header-video) .custom-header-media {
 	text-transform: none;
 }
 
-.organizeOSWP-panel .recent-posts .entry-header .edit-link {
+.organizeOS-panel .recent-posts .entry-header .edit-link {
 	color: #222;
 	display: inline-block;
 	font-size: 11px;
@@ -1887,7 +1887,7 @@ body:not(.has-header-image):not(.has-header-video) .custom-header-media {
 
 .page .panel-content .entry-title,
 .page-title,
-body.page:not(.organizeOSWP-front-page) .entry-title {
+body.page:not(.organizeOS-front-page) .entry-title {
 	color: #222;
 	font-size: 14px;
 	font-size: 0.875rem;
@@ -2024,18 +2024,18 @@ body.page:not(.organizeOSWP-front-page) .entry-title {
 	padding-bottom: 2em;
 }
 
-body:not(.organizeOSWP-front-page) .entry-header {
+body:not(.organizeOS-front-page) .entry-header {
 	padding: 1em 0;
 }
 
-body:not(.organizeOSWP-front-page) .entry-header,
-body:not(.organizeOSWP-front-page) .entry-content,
-body:not(.organizeOSWP-front-page) #comments {
+body:not(.organizeOS-front-page) .entry-header,
+body:not(.organizeOS-front-page) .entry-content,
+body:not(.organizeOS-front-page) #comments {
 	margin-left: auto;
 	margin-right: auto;
 }
 
-body:not(.organizeOSWP-front-page) .entry-header {
+body:not(.organizeOS-front-page) .entry-header {
 	padding-top: 0;
 }
 
@@ -2070,7 +2070,7 @@ body:not(.organizeOSWP-front-page) .entry-header {
 /* Single Post */
 
 .single-post:not(.has-sidebar) #primary,
-.page.page-one-column:not(.organizeOSWP-front-page) #primary,
+.page.page-one-column:not(.organizeOS-front-page) #primary,
 .archive.page-one-column:not(.has-sidebar) .page-header,
 .archive.page-one-column:not(.has-sidebar) #primary {
 	margin-left: auto;
@@ -3003,7 +3003,7 @@ object {
 17.0 Customizer
 --------------------------------------------------------------*/
 
-.highlight-front-sections.organizeOSWP-customizer.organizeOSWP-front-page .organizeOSWP-panel:after {
+.highlight-front-sections.organizeOS-customizer.organizeOS-front-page .organizeOS-panel:after {
 	border: 2px dashed #0085ba; /* Matches visible edit shortcuts. */
 	bottom: 1em;
 	content: "";
@@ -3015,12 +3015,12 @@ object {
 	z-index: 1;
 }
 
-.highlight-front-sections.organizeOSWP-customizer.organizeOSWP-front-page .organizeOSWP-panel .panel-content {
+.highlight-front-sections.organizeOS-customizer.organizeOS-front-page .organizeOS-panel .panel-content {
 	z-index: 2; /* Prevent :after from preventing interactions within the section */
 }
 
 /* Used for placeholder text */
-.organizeOSWP-customizer.organizeOSWP-front-page .organizeOSWP-panel .organizeOSWP-panel-title {
+.organizeOS-customizer.organizeOS-front-page .organizeOS-panel .organizeOS-panel-title {
 	display: block;
 	font-size: 14px;
 	font-size: 0.875rem;
@@ -3032,22 +3032,22 @@ object {
 }
 
 /* Show borders on the custom page panels only when the front page sections are being edited */
-.highlight-front-sections.organizeOSWP-customizer.organizeOSWP-front-page .organizeOSWP-panel:nth-of-type(1):after {
+.highlight-front-sections.organizeOS-customizer.organizeOS-front-page .organizeOS-panel:nth-of-type(1):after {
 	border: none;
 }
 
-.organizeOSWP-front-page.organizeOSWP-customizer #primary article.panel-placeholder {
+.organizeOS-front-page.organizeOS-customizer #primary article.panel-placeholder {
 	border: 0;
 }
 
 /* Add some space around the visual edit shortcut buttons. */
-.organizeOSWP-panel .customize-partial-edit-shortcut button {
+.organizeOS-panel .customize-partial-edit-shortcut button {
 	top: 30px;
 	left: 30px;
 }
 
 /* Ensure that placeholder icons are visible. */
-.organizeOSWP-panel .customize-partial-edit-shortcut-hidden:before {
+.organizeOS-panel .customize-partial-edit-shortcut-hidden:before {
 	visibility: visible;
 }
 
@@ -3303,8 +3303,8 @@ object {
 		margin-bottom: 0;
 	}
 
-	.has-header-image.organizeOSWP-front-page .site-branding,
-	.has-header-video.organizeOSWP-front-page .site-branding,
+	.has-header-image.organizeOS-front-page .site-branding,
+	.has-header-video.organizeOS-front-page .site-branding,
 	.has-header-image.home.blog .site-branding,
 	.has-header-video.home.blog .site-branding {
 		bottom: 0;
@@ -3316,8 +3316,8 @@ object {
 		width: 100%;
 	}
 
-	.has-header-image.organizeOSWP-front-page .custom-header,
-	.has-header-video.organizeOSWP-front-page .custom-header,
+	.has-header-image.organizeOS-front-page .custom-header,
+	.has-header-video.organizeOS-front-page .custom-header,
 	.has-header-image.home.blog .custom-header,
 	.has-header-video.home.blog .custom-header {
 		display: block;
@@ -3329,16 +3329,16 @@ object {
 		position: relative;
 	}
 
-	.organizeOSWP-front-page.has-header-image .custom-header-media,
-	.organizeOSWP-front-page.has-header-video .custom-header-media,
+	.organizeOS-front-page.has-header-image .custom-header-media,
+	.organizeOS-front-page.has-header-video .custom-header-media,
 	.home.blog.has-header-image .custom-header-media,
 	.home.blog.has-header-video .custom-header-media {
 		height: 0;
 		position: relative;
 	}
 
-	.has-header-image:not(.organizeOSWP-front-page):not(.home) .custom-header-media,
-	.has-header-video:not(.organizeOSWP-front-page):not(.home) .custom-header-media {
+	.has-header-image:not(.organizeOS-front-page):not(.home) .custom-header-media,
+	.has-header-video:not(.organizeOS-front-page):not(.home) .custom-header-media {
 		bottom: 0;
 		height: auto;
 		left: 0;
@@ -3619,15 +3619,15 @@ object {
 
 	/* Front Page */
 
-	.organizeOSWP-front-page.has-header-image .site-branding,
-	.organizeOSWP-front-page.has-header-video .site-branding,
+	.organizeOS-front-page.has-header-image .site-branding,
+	.organizeOS-front-page.has-header-video .site-branding,
 	.home.blog.has-header-image .site-branding,
 	.home.blog.has-header-video .site-branding {
 		margin-bottom: 70px;
 	}
 
-	.organizeOSWP-front-page.has-header-image .custom-header-media,
-	.organizeOSWP-front-page.has-header-video .custom-header-media,
+	.organizeOS-front-page.has-header-image .custom-header-media,
+	.organizeOS-front-page.has-header-video .custom-header-media,
 	.home.blog.has-header-image .custom-header-media,
 	.home.blog.has-header-video .custom-header-media {
 		height: 1200px;
@@ -3636,15 +3636,15 @@ object {
 		overflow: hidden;
 	}
 
-	.organizeOSWP-front-page.has-header-image .custom-header-media:before,
-	.organizeOSWP-front-page.has-header-video .custom-header-media:before,
+	.organizeOS-front-page.has-header-image .custom-header-media:before,
+	.organizeOS-front-page.has-header-video .custom-header-media:before,
 	.home.blog.has-header-image .custom-header-media:before,
 	.home.blog.has-header-video .custom-header-media:before {
 		height: 33%;
 	}
 
-	.admin-bar.organizeOSWP-front-page.has-header-image .custom-header-media,
-	.admin-bar.organizeOSWP-front-page.has-header-video .custom-header-media,
+	.admin-bar.organizeOS-front-page.has-header-image .custom-header-media,
+	.admin-bar.organizeOS-front-page.has-header-video .custom-header-media,
 	.admin-bar.home.blog.has-header-image .custom-header-media,
 	.admin-bar.home.blog.has-header-video .custom-header-media {
 		height: calc(100vh - 32px);
@@ -3839,7 +3839,7 @@ object {
 	/* blog and archive */
 
 	.blog:not(.has-sidebar) .entry-content blockquote.alignleft,
-	.organizeOSWP-front-page.page-two-column .entry-content blockquote.alignleft,
+	.organizeOS-front-page.page-two-column .entry-content blockquote.alignleft,
 	.archive:not(.has-sidebar) .entry-content blockquote.alignleft,
 	.page-two-column .entry-content blockquote.alignleft {
 		margin-left: -72.5%;
@@ -3847,7 +3847,7 @@ object {
 	}
 
 	.blog:not(.has-sidebar) .entry-content blockquote.alignright,
-	.organizeOSWP-front-page.page-two-column .entry-content blockquote.alignright,
+	.organizeOS-front-page.page-two-column .entry-content blockquote.alignright,
 	.archive:not(.has-sidebar) .entry-content blockquote.alignright,
 	.page-two-column .entry-content blockquote.alignright {
 		margin-right: 0;
@@ -3863,7 +3863,7 @@ object {
 	/* Pages */
 
 	.page.page-one-column .entry-header,
-	.organizeOSWP-front-page.page-one-column .entry-header,
+	.organizeOS-front-page.page-one-column .entry-header,
 	.archive.page-one-column:not(.has-sidebar) .page-header {
 		margin-bottom: 4em;
 	}
@@ -4054,7 +4054,7 @@ object {
 	.blog:not(.has-sidebar) .entry-content blockquote.alignright,
 	.archive:not(.has-sidebar) .entry-content blockquote.alignright,
 	.page-two-column .entry-content blockquote.alignright,
-	.organizeOSWP-front-page .entry-content blockquote.alignright {
+	.organizeOS-front-page .entry-content blockquote.alignright {
 		margin-right: -20%;
 	}
 }
@@ -4141,7 +4141,7 @@ object {
 
 	.page .panel-content .entry-title,
 	.page-title,
-	body.page:not(.organizeOSWP-front-page) .entry-title {
+	body.page:not(.organizeOS-front-page) .entry-title {
 		font-size: 10pt;
 	}
 
@@ -4164,8 +4164,8 @@ object {
 		padding: 0;
 	}
 
-	.organizeOSWP-front-page.has-header-image .site-branding,
-	.organizeOSWP-front-page.has-header-video .site-branding,
+	.organizeOS-front-page.has-header-image .site-branding,
+	.organizeOS-front-page.has-header-video .site-branding,
 	.home.blog.has-header-image .site-branding,
 	.home.blog.has-header-video .site-branding {
 		position: relative;
@@ -4205,10 +4205,10 @@ object {
 	body,
 	a,
 	.site-title a,
-	.organizeOSWP-front-page.has-header-image .site-title,
-	.organizeOSWP-front-page.has-header-video .site-title,
-	.organizeOSWP-front-page.has-header-image .site-title a,
-	.organizeOSWP-front-page.has-header-video .site-title a {
+	.organizeOS-front-page.has-header-image .site-title,
+	.organizeOS-front-page.has-header-video .site-title,
+	.organizeOS-front-page.has-header-image .site-title a,
+	.organizeOS-front-page.has-header-video .site-title a {
 		color: #222 !important; /* Make sure color schemes don't affect to print */
 	}
 
@@ -4216,8 +4216,8 @@ object {
 	h5,
 	blockquote,
 	.site-description,
-	.organizeOSWP-front-page.has-header-image .site-description,
-	.organizeOSWP-front-page.has-header-video .site-description,
+	.organizeOS-front-page.has-header-image .site-description,
+	.organizeOS-front-page.has-header-video .site-description,
 	.entry-meta,
 	.entry-meta a {
 		color: #777 !important; /* Make sure color schemes don't affect to print */

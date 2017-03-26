@@ -48,12 +48,12 @@ add_filter( 'feed_links_show_comments_feed', '__return_false' );
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function organizeOSWP_setup() {
+function organizeOS_setup() {
 	/*
 	 * Make theme available for translation.
-	 * Translations can be filed at WordPress.org. See: https://translate.wordpress.org/projects/wp-themes/organizeOSWP
+	 * Translations can be filed at WordPress.org. See: https://translate.wordpress.org/projects/wp-themes/organizeOS
 	 */
-	load_theme_textdomain( 'organizeOSWP' );
+	load_theme_textdomain( 'organizeOS' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -70,14 +70,14 @@ function organizeOSWP_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
-	add_image_size( 'organizeOSWP-featured-image', 1920, 1080, true );
+	add_image_size( 'organizeOS-featured-image', 1920, 1080, true );
 
-	add_image_size( 'organizeOSWP-thumbnail-avatar', 512, 512, true );
+	add_image_size( 'organizeOS-thumbnail-avatar', 512, 512, true );
 
 	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(
-		'top'    => __( 'Top Menu', 'organizeOSWP' ),
-		'social' => __( 'Social Links Menu', 'organizeOSWP' ),
+		'top'    => __( 'Top Menu', 'organizeOS' ),
+		'social' => __( 'Social Links Menu', 'organizeOS' ),
 	) );
 
 	/*
@@ -111,21 +111,21 @@ function organizeOSWP_setup() {
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
 }
-add_action( 'after_setup_theme', 'organizeOSWP_setup' );
+add_action( 'after_setup_theme', 'organizeOS_setup' );
 
 
-//add_filter( 'wp_resource_hints', 'organizeOSWP_resource_hints', 10, 2 );
+//add_filter( 'wp_resource_hints', 'organizeOS_resource_hints', 10, 2 );
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function organizeOSWP_widgets_init() {
+function organizeOS_widgets_init() {
 	register_sidebar( array(
-		'name'          => __( 'Sidebar', 'organizeOSWP' ),
+		'name'          => __( 'Sidebar', 'organizeOS' ),
 		'id'            => 'sidebar-1',
-		'description'   => __( 'Add widgets here to appear in your sidebar.', 'organizeOSWP' ),
+		'description'   => __( 'Add widgets here to appear in your sidebar.', 'organizeOS' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -133,9 +133,9 @@ function organizeOSWP_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => __( 'Footer 1', 'organizeOSWP' ),
+		'name'          => __( 'Footer 1', 'organizeOS' ),
 		'id'            => 'sidebar-2',
-		'description'   => __( 'Add widgets here to appear in your footer.', 'organizeOSWP' ),
+		'description'   => __( 'Add widgets here to appear in your footer.', 'organizeOS' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -143,16 +143,16 @@ function organizeOSWP_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => __( 'Footer 2', 'organizeOSWP' ),
+		'name'          => __( 'Footer 2', 'organizeOS' ),
 		'id'            => 'sidebar-3',
-		'description'   => __( 'Add widgets here to appear in your footer.', 'organizeOSWP' ),
+		'description'   => __( 'Add widgets here to appear in your footer.', 'organizeOS' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
 }
-add_action( 'widgets_init', 'organizeOSWP_widgets_init' );
+add_action( 'widgets_init', 'organizeOS_widgets_init' );
 
 /**
  * Replaces "[...]" (appended to automatically generated excerpts) with ... and changes auto excerpt length
@@ -161,7 +161,7 @@ add_action( 'widgets_init', 'organizeOSWP_widgets_init' );
  *
  * @return string 'Continue reading' link prepended with an ellipsis.
  */
-function organizeOSWP_excerpt_more( $link ) {
+function organizeOS_excerpt_more( $link ) {
 	if ( is_admin() ) {
 		return $link;
 	}
@@ -169,54 +169,54 @@ function organizeOSWP_excerpt_more( $link ) {
 	$link = sprintf( '<a href="%1$s" class="more-link">%2$s</a>',
 		esc_url( get_permalink( get_the_ID() ) ),
 		/* translators: %s: Name of current post */
-		sprintf( __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'organizeOSWP' ), get_the_title( get_the_ID() ) )
+		sprintf( __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'organizeOS' ), get_the_title( get_the_ID() ) )
 	);
 	return '&hellip;';
 }
-function organizeOSWP_excerpt_length( $length ) {
+function organizeOS_excerpt_length( $length ) {
     return 20;
 }
-add_filter( 'excerpt_more', 'organizeOSWP_excerpt_more' );
-add_filter( 'excerpt_length', 'organizeOSWP_excerpt_length', 999 );
+add_filter( 'excerpt_more', 'organizeOS_excerpt_more' );
+add_filter( 'excerpt_length', 'organizeOS_excerpt_length', 999 );
 
 
 
 /**
  * Enqueue scripts and styles.
  */
-function organizeOSWP_scripts() {
+function organizeOS_scripts() {
 
 	// Theme stylesheet
-	wp_enqueue_style( 'organizeOSWP-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'organizeOS-style', get_stylesheet_uri() );
 
   // Theme scripts
-  wp_enqueue_script( 'organizeOSWP-scripts', get_theme_file_uri( '/assets/js/organizeos.js' ), array( 'jquery' ), '1.0', true );
+  wp_enqueue_script( 'organizeOS-scripts', get_theme_file_uri( '/assets/js/organizeos.js' ), array( 'jquery' ), '1.0', true );
 
 
 	// Load the html5 shiv.
 	wp_enqueue_script( 'html5', get_theme_file_uri( '/assets/js/html5.js' ), array(), '3.7.3' );
 	wp_script_add_data( 'html5', 'conditional', 'lt IE 9' );
 
-	wp_enqueue_script( 'organizeOSWP-skip-link-focus-fix', get_theme_file_uri( '/assets/js/skip-link-focus-fix.js' ), array(), '1.0', true );
+	wp_enqueue_script( 'organizeOS-skip-link-focus-fix', get_theme_file_uri( '/assets/js/skip-link-focus-fix.js' ), array(), '1.0', true );
 
-	$organizeOSWP_l10n = array(
-		'quote'          => organizeOSWP_get_svg( array( 'icon' => 'quote-right' ) ),
+	$organizeOS_l10n = array(
+		'quote'          => organizeOS_get_svg( array( 'icon' => 'quote-right' ) ),
 	);
 
 	if ( has_nav_menu( 'top' ) ) {
-		wp_enqueue_script( 'organizeOSWP-navigation', get_theme_file_uri( '/assets/js/navigation.js' ), array(), '1.0', true );
-		$organizeOSWP_l10n['expand']         = __( 'Expand child menu', 'organizeOSWP' );
-		$organizeOSWP_l10n['collapse']       = __( 'Collapse child menu', 'organizeOSWP' );
-		$organizeOSWP_l10n['icon']           = organizeOSWP_get_svg( array( 'icon' => 'angle-down', 'fallback' => true ) );
+		wp_enqueue_script( 'organizeOS-navigation', get_theme_file_uri( '/assets/js/navigation.js' ), array(), '1.0', true );
+		$organizeOS_l10n['expand']         = __( 'Expand child menu', 'organizeOS' );
+		$organizeOS_l10n['collapse']       = __( 'Collapse child menu', 'organizeOS' );
+		$organizeOS_l10n['icon']           = organizeOS_get_svg( array( 'icon' => 'angle-down', 'fallback' => true ) );
 	}
 
 
 	wp_enqueue_script( 'jquery-scrollto', get_theme_file_uri( '/assets/js/jquery.scrollTo.js' ), array( 'jquery' ), '2.1.2', true );
 
-	wp_localize_script( 'organizeOSWP-skip-link-focus-fix', 'organizeOSWPScreenReaderText', $organizeOSWP_l10n );
+	wp_localize_script( 'organizeOS-skip-link-focus-fix', 'organizeOSScreenReaderText', $organizeOS_l10n );
 
 }
-add_action( 'wp_enqueue_scripts', 'organizeOSWP_scripts' );
+add_action( 'wp_enqueue_scripts', 'organizeOS_scripts' );
 
 /**
  * Add custom image sizes attribute to enhance responsive image functionality
@@ -229,7 +229,7 @@ add_action( 'wp_enqueue_scripts', 'organizeOSWP_scripts' );
  *                      values in pixels (in that order).
  * @return string A source size value for use in a content image 'sizes' attribute.
  */
-function organizeOSWP_content_image_sizes_attr( $sizes, $size ) {
+function organizeOS_content_image_sizes_attr( $sizes, $size ) {
 	$width = $size[0];
 
 	if ( 740 <= $width ) {
@@ -244,7 +244,7 @@ function organizeOSWP_content_image_sizes_attr( $sizes, $size ) {
 
 	return $sizes;
 }
-// add_filter( 'wp_calculate_image_sizes', 'organizeOSWP_content_image_sizes_attr', 10, 2 );
+// add_filter( 'wp_calculate_image_sizes', 'organizeOS_content_image_sizes_attr', 10, 2 );
 
 
 /**
@@ -258,7 +258,7 @@ function organizeOSWP_content_image_sizes_attr( $sizes, $size ) {
  * @param array $size       Registered image size or flat array of height and width dimensions.
  * @return string A source size value for use in a post thumbnail 'sizes' attribute.
  */
-function organizeOSWP_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
+function organizeOS_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
 	if ( is_archive() || is_search() || is_home() ) {
 		$attr['sizes'] = '(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px';
 	} else {
@@ -267,7 +267,7 @@ function organizeOSWP_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
 
 	return $attr;
 }
-// add_filter( 'wp_get_attachment_image_attributes', 'organizeOSWP_post_thumbnail_sizes_attr', 10, 3 );
+// add_filter( 'wp_get_attachment_image_attributes', 'organizeOS_post_thumbnail_sizes_attr', 10, 3 );
 
 
 

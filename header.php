@@ -23,7 +23,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'organizeOSWP' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'organizeOS' ); ?></a>
 
 
 	<header id="topbar" role="banner">
@@ -33,7 +33,7 @@
 		<button class="icon hamburger hidden-sm-up"></button>
 
 
-		<nav id="site-navigation" class="main-navigation hidden-xs-down" role="navigation" aria-label="<?php _e( 'Main Menu', 'organizeOSWP' ); ?>">
+		<nav id="site-navigation" class="main-navigation hidden-xs-down" role="navigation" aria-label="<?php _e( 'Main Menu', 'organizeOS' ); ?>">
 
 
 			<?php if ( is_front_page() ) { ?>

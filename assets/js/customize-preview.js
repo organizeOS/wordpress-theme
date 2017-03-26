@@ -15,7 +15,7 @@
 		wp.customize.preview.bind( 'section-highlight', function( data ) {
 
 			// Only on the front page.
-			if ( ! $( 'body' ).hasClass( 'organizeOSWP-front-page' ) ) {
+			if ( ! $( 'body' ).hasClass( 'organizeOS-front-page' ) ) {
 				return;
 			}
 
@@ -64,7 +64,7 @@
 
 				// Check if the text color has been removed and use default colors in theme stylesheet.
 				if ( ! to.length ) {
-					$( '#organizeOSWP-custom-header-styles' ).remove();
+					$( '#organizeOS-custom-header-styles' ).remove();
 				}
 				$( '.site-title, .site-description' ).css({
 					clip: 'auto',
