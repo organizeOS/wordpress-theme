@@ -42,20 +42,16 @@ while ($query->have_posts()) {
     <div class="row align-items-top">
 
       <div class="action col-md-7">
-        <div class="row align-items-center icon-heading">
-          <div class="col-md-auto icon"></div>
-          <div class="col"><h2>Take Action</h2></div>
-        </div><!-- .row .icon-heading -->
+        <h2>Take Action</h2>
+
         <h3><?php	the_title(); ?></h3>
         <p><?php the_excerpt(); ?></p>
         <a class="button major" href="<?php the_permalink(); ?>"><?php echo $metas['button'][0]; ?></a>
       </div><!-- .action -->
 
-      <div class="event col-md-5 col-lg-4 offset-lg-1">
-        <div class="row align-items-center icon-heading">
-          <div class="col-md-auto icon"></div>
-          <div class="col"><h2>Next Major Event</h2></div>
-        </div><!-- .row .icon-heading -->
+      <div class="event col-md-5 col-lg-5">
+        <h2>Next Major Event</h2>
+				
         <?php echo EM_Events::output( $nextevent ); ?>
       </div><!-- .event -->
 

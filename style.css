@@ -5259,7 +5259,7 @@ header#topbar {
 		position: absolute;
 		top: 0;
 		left: 0;
-		padding: 0.5rem;
+		padding: 0.5rem 0;
 		width: 100%;
 		background: transparent;
 		display: flex;
@@ -5270,7 +5270,7 @@ header#topbar {
 
 @media (min-width: 768px) {
 		header#topbar {
-				padding: 1rem 3rem;
+				padding: 1rem 0;
 		}
 }
 
@@ -5318,20 +5318,28 @@ header#topbar nav ul li a:hover {
 		color: #f3e8ff;
 }
 
-.home header#topbar nav a, .single header#topbar nav a {
+.home header#topbar nav a {
 		color: #f3e8ff;
 }
 
-.home header#topbar nav a:hover, .single header#topbar nav a:hover {
+.home header#topbar nav a:hover {
 		background: #f3e8ff;
 		color: #111135;
+}
+
+.home header#topbar .search-form input {
+		color: #f3e8ff;
+		margin-bottom: 0;
+		font-size: 0.8em;
+		width: 5rem;
 }
 
 article.section {
 		text-align: justify;
 		color: #4d4d4d;
 		font-weight: 400;
-		padding: 8rem 0;
+		padding: 0;
+		padding-bottom: 8rem;
 }
 
 @media (min-width: 768px) {
@@ -5341,10 +5349,119 @@ article.section {
 		}
 }
 
+.entry-header {
+		color: #4d4d4d;
+		font-weight: 400;
+		padding-top: 8rem;
+}
+
 .entry-header h2 {
-		font-size: 3em;
+		font-size: 2.5em;
 		font-weight: 400;
 		text-align: center;
+}
+
+footer {
+		color: #f3e8ff;
+		background: #333333;
+		padding: 3rem 0;
+}
+
+@media (max-width: 767px) {
+		footer .container > .row > div + div {
+				margin-top: 3rem;
+		}
+}
+
+footer a:not(.button), footer a:link:not(.button), footer a:visited:not(.button) {
+		color: #f3e8ff;
+		border-bottom: dotted #f3e8ff 1px;
+}
+
+footer a:not(.button):hover, footer a:not(.button):active, footer a:link:not(.button):hover, footer a:link:not(.button):active, footer a:visited:not(.button):hover, footer a:visited:not(.button):active {
+		color: #f3e8ff;
+		border-bottom: solid #f3e8ff 3px;
+}
+
+footer .button {
+		color: #333333;
+}
+
+footer .button:hover {
+		color: #333333;
+}
+
+footer .button.major {
+		background: rgba(243, 232, 255, 0.8);
+}
+
+footer .button.major:hover {
+		background: #f3e8ff;
+}
+
+footer .button.minor {
+		background: rgba(243, 232, 255, 0.4);
+}
+
+footer .button.minor:hover {
+		background: rgba(243, 232, 255, 0.8);
+}
+
+footer input {
+		border-bottom-color: #f3e8ff;
+		color: #f3e8ff;
+}
+
+footer h2 {
+		margin-bottom: 2rem;
+}
+
+footer #events .row {
+		margin: 0;
+}
+
+@media (min-width: 768px) {
+		footer #site-info {
+				text-align: left;
+		}
+}
+
+footer #newsletter-form {
+		margin: 3rem 0;
+}
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+		clip: rect(1px, 1px, 1px, 1px);
+		height: 1px;
+		overflow: hidden;
+		position: absolute !important;
+		width: 1px;
+		word-wrap: normal !important;
+		/* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+.screen-reader-text:focus {
+		background-color: #f1f1f1;
+		-webkit-border-radius: 3px;
+		border-radius: 3px;
+		-webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+		box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+		clip: auto !important;
+		color: #21759b;
+		display: block;
+		font-size: 14px;
+		font-size: 0.875rem;
+		font-weight: 700;
+		height: auto;
+		left: 5px;
+		line-height: normal;
+		padding: 15px 23px 14px;
+		text-decoration: none;
+		top: 5px;
+		width: auto;
+		z-index: 100000;
+		/* Above WP toolbar. */
 }
 
 #hero {
@@ -5408,6 +5525,13 @@ article.section {
 		text-transform: uppercase;
 		letter-spacing: 0.2em;
 		font-weight: 400;
+		margin-bottom: 1rem;
+}
+
+@media (min-width: 576px) {
+		#hero h2 {
+				margin-bottom: 3rem;
+		}
 }
 
 #hero h3 {
@@ -5507,102 +5631,102 @@ article.section {
 		margin: 1rem 0;
 }
 
-#events-upcoming {
+#events {
 		color: #bba0d2;
 		background: #3b254e;
 }
 
-#events-upcoming a:not(.button), #events-upcoming a:link:not(.button), #events-upcoming a:visited:not(.button) {
+#events a:not(.button), #events a:link:not(.button), #events a:visited:not(.button) {
 		color: #bba0d2;
 		border-bottom: dotted #bba0d2 1px;
 }
 
-#events-upcoming a:not(.button):hover, #events-upcoming a:not(.button):active, #events-upcoming a:link:not(.button):hover, #events-upcoming a:link:not(.button):active, #events-upcoming a:visited:not(.button):hover, #events-upcoming a:visited:not(.button):active {
+#events a:not(.button):hover, #events a:not(.button):active, #events a:link:not(.button):hover, #events a:link:not(.button):active, #events a:visited:not(.button):hover, #events a:visited:not(.button):active {
 		color: #bba0d2;
 		border-bottom: solid #bba0d2 3px;
 }
 
-#events-upcoming .button {
+#events .button {
 		color: #3b254e;
 }
 
-#events-upcoming .button:hover {
+#events .button:hover {
 		color: #3b254e;
 }
 
-#events-upcoming .button.major {
+#events .button.major {
 		background: rgba(187, 160, 210, 0.8);
 }
 
-#events-upcoming .button.major:hover {
+#events .button.major:hover {
 		background: #bba0d2;
 }
 
-#events-upcoming .button.minor {
+#events .button.minor {
 		background: rgba(187, 160, 210, 0.4);
 }
 
-#events-upcoming .button.minor:hover {
+#events .button.minor:hover {
 		background: rgba(187, 160, 210, 0.8);
 }
 
-#events-upcoming input {
+#events input {
 		border-bottom-color: #bba0d2;
 		color: #bba0d2;
 }
 
-#events-upcoming h3 {
+#events h3 {
 		font-size: 0.8em;
 		text-transform: uppercase;
 		letter-spacing: 0.2em;
 		font-weight: 400;
 }
 
-#events-upcoming .card .card-inner {
+#events .card .card-inner {
 		color: #3b254e;
 		background: #bba0d2;
 }
 
-#events-upcoming .card .card-inner a:not(.button), #events-upcoming .card .card-inner a:link:not(.button), #events-upcoming .card .card-inner a:visited:not(.button) {
+#events .card .card-inner a:not(.button), #events .card .card-inner a:link:not(.button), #events .card .card-inner a:visited:not(.button) {
 		color: #312f96;
 		border-bottom: dotted #312f96 1px;
 }
 
-#events-upcoming .card .card-inner a:not(.button):hover, #events-upcoming .card .card-inner a:not(.button):active, #events-upcoming .card .card-inner a:link:not(.button):hover, #events-upcoming .card .card-inner a:link:not(.button):active, #events-upcoming .card .card-inner a:visited:not(.button):hover, #events-upcoming .card .card-inner a:visited:not(.button):active {
+#events .card .card-inner a:not(.button):hover, #events .card .card-inner a:not(.button):active, #events .card .card-inner a:link:not(.button):hover, #events .card .card-inner a:link:not(.button):active, #events .card .card-inner a:visited:not(.button):hover, #events .card .card-inner a:visited:not(.button):active {
 		color: #312f96;
 		border-bottom: solid #312f96 3px;
 }
 
-#events-upcoming .card .card-inner .button {
+#events .card .card-inner .button {
 		color: #bba0d2;
 }
 
-#events-upcoming .card .card-inner .button:hover {
+#events .card .card-inner .button:hover {
 		color: #bba0d2;
 }
 
-#events-upcoming .card .card-inner .button.major {
+#events .card .card-inner .button.major {
 		background: rgba(49, 47, 150, 0.8);
 }
 
-#events-upcoming .card .card-inner .button.major:hover {
+#events .card .card-inner .button.major:hover {
 		background: #312f96;
 }
 
-#events-upcoming .card .card-inner .button.minor {
+#events .card .card-inner .button.minor {
 		background: rgba(49, 47, 150, 0.4);
 }
 
-#events-upcoming .card .card-inner .button.minor:hover {
+#events .card .card-inner .button.minor:hover {
 		background: rgba(49, 47, 150, 0.8);
 }
 
-#events-upcoming .card .card-inner input {
+#events .card .card-inner input {
 		border-bottom-color: #3b254e;
 		color: #3b254e;
 }
 
-#events-upcoming .card .card-link {
+#events .card .card-link {
 		color: #bba0d2;
 }
 
@@ -5757,105 +5881,6 @@ article.section {
 		color: #bba0d2;
 }
 
-footer {
-		color: #f3e8ff;
-		background: #333333;
-		padding: 3rem 0;
-}
-
-@media (max-width: 767px) {
-		footer .container > .row > div + div {
-				margin-top: 3rem;
-		}
-}
-
-footer a:not(.button), footer a:link:not(.button), footer a:visited:not(.button) {
-		color: #f3e8ff;
-		border-bottom: dotted #f3e8ff 1px;
-}
-
-footer a:not(.button):hover, footer a:not(.button):active, footer a:link:not(.button):hover, footer a:link:not(.button):active, footer a:visited:not(.button):hover, footer a:visited:not(.button):active {
-		color: #f3e8ff;
-		border-bottom: solid #f3e8ff 3px;
-}
-
-footer .button {
-		color: #333333;
-}
-
-footer .button:hover {
-		color: #333333;
-}
-
-footer .button.major {
-		background: rgba(243, 232, 255, 0.8);
-}
-
-footer .button.major:hover {
-		background: #f3e8ff;
-}
-
-footer .button.minor {
-		background: rgba(243, 232, 255, 0.4);
-}
-
-footer .button.minor:hover {
-		background: rgba(243, 232, 255, 0.8);
-}
-
-footer input {
-		border-bottom-color: #f3e8ff;
-		color: #f3e8ff;
-}
-
-footer h2 {
-		margin-bottom: 2rem;
-}
-
-footer #events .row {
-		margin: 0;
-}
-
-@media (min-width: 768px) {
-		footer #site-info {
-				text-align: left;
-		}
-}
-
-footer #newsletter-form {
-		margin: 3rem 0;
-}
-
-/* Text meant only for screen readers. */
-.screen-reader-text {
-		clip: rect(1px, 1px, 1px, 1px);
-		height: 1px;
-		overflow: hidden;
-		position: absolute !important;
-		width: 1px;
-		word-wrap: normal !important;
-		/* Many screen reader and browser combinations announce broken words as they would appear visually. */
-}
-
-.screen-reader-text:focus {
-		background-color: #f1f1f1;
-		-webkit-border-radius: 3px;
-		border-radius: 3px;
-		-webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-		box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-		clip: auto !important;
-		color: #21759b;
-		display: block;
-		font-size: 14px;
-		font-size: 0.875rem;
-		font-weight: 700;
-		height: auto;
-		left: 5px;
-		line-height: normal;
-		padding: 15px 23px 14px;
-		text-decoration: none;
-		top: 5px;
-		width: auto;
-		z-index: 100000;
-		/* Above WP toolbar. */
+#about p {
+		text-align: justify;
 }

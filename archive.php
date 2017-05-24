@@ -17,15 +17,14 @@ get_header(); ?>
 
 	<div class="section">
 		<div class="container">
-			<div class="row">
 
-
-
-			<header class="archive-header">
+			<header class="row entry-header">
+				<div class="col">
 				<?php
-					the_archive_title( '<h2 class="page-title">', '</h2>' );
+					the_archive_title( '<h2 class="entry-title">', '</h2>' );
 					the_archive_description( '<div class="taxonomy-description">', '</div>' );
 				?>
+			</div>
 			</header><!-- .archive-header -->
 
 
@@ -34,7 +33,6 @@ get_header(); ?>
 			<?php
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
-			echo get_post_type();
 				/*
 				 * Include the Post-Format-specific template for the content.
 				 * If you want to override this in a child theme, then include a file

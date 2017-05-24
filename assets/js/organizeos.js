@@ -17,10 +17,13 @@
 
   	switch ($(this).data('action')) {
 
-      case "newsletter-formshow":
-        $(this).fadeThenSlideToggle();
-        $("#newsletter-form").fadeThenSlideToggle();
+      case "scrollTo":
+
+        $(window).scrollTo($(this).attr('href'), 1000, {easing: 'swing'});
+
+
       break;
+
 
       case "newsletter-signup":
         if ($("#newsletter-email").val() != "") {

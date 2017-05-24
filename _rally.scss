@@ -1,0 +1,128 @@
+#hero {
+  @include sm-col-margin;
+  @include light-on-dark($brand-primary-lighter, $brand-primary-darker);
+
+  @include media-breakpoint-up(md) {
+    text-align: left;
+  }
+
+
+  h2 {
+    @include smallcaps;
+    @include bottom-spacer;
+  }
+
+  h3 {
+    margin-bottom: 1rem;
+  }
+
+  h4 {
+    margin-bottom: 1rem;
+  }
+
+  p {
+    @include bottom-spacer;
+  }
+
+  .icon-heading {
+    padding-left: 15px;
+    @include bottom-spacer;
+  }
+
+  .icon {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .action {
+    .icon::after {
+      @include icon;
+      content: "\f0a1";
+    }
+  }
+
+  .event {
+    .icon::after {
+      @include icon;
+      content: "\f133";
+    }
+  }
+
+}
+
+.home #hero {
+  .container {
+    padding-top: 4rem;
+  }
+
+}
+
+
+
+
+#issues {
+  @include dark-on-light($brand-primary-darker, $brand-light, $brand-primary);
+
+  p {
+    height: 2rem;
+    margin: 1rem 0;
+  }
+
+}
+
+
+
+
+#events {
+  @include light-on-dark($brand-secondary-lighter, $brand-secondary-darker);
+
+  h3 {
+    @include smallcaps;
+  }
+
+  .card {
+    .card-inner {
+      @include dark-on-light($brand-secondary-darker, $brand-secondary-lighter);
+    }
+    .card-link {
+      color: $brand-secondary-lighter;
+    }
+  }
+}
+
+
+
+
+#blog {
+  @include dark-on-light($brand-dark, $brand-light, $brand-primary);
+  .card {
+    .card-inner {
+      @include light-on-dark($brand-light, $brand-primary);
+    }
+    .card-block {
+      text-align: left;
+      padding: 1rem;
+      @include media-breakpoint-up(md) {
+        padding: 3rem;
+      }
+    }
+    .card-footer {
+      .button {
+        color: $brand-light;
+        &:hover {
+          color: $brand-light;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+#about {
+  @include light-on-dark($brand-secondary-lighter, $brand-secondary-darker);
+  p {
+    text-align: justify;
+  }
+}

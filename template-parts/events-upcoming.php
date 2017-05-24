@@ -39,7 +39,7 @@ $events['format'] = '
 ?>
 
 
-<div class="section" id="events-upcoming">
+<div class="section" id="events">
 	<div class="container">
 
 		<div class="row section-title">

@@ -20,7 +20,9 @@ while ($query->have_posts()) {
   		</div><!-- .row -->
 
   		<div class="row section-content">
-  			<p><?php the_excerpt(); ?></p>
+        <div class="col">
+          <p><?php the_excerpt(); ?></p>
+        </div>
   		</div><!-- .section-content -->
 
   		<div class="row section-links">

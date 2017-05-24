@@ -39,12 +39,11 @@
 			<?php if ( is_front_page() ) { ?>
 
 			<ul>
-				<li><a href="#issues">Issues</a></li>
-				<li><a href="#events">Events</a></li>
-				<li><a href="#blog">Updates</a></li>
-				<li><a href="#about">About</a></li>
+				<li><a href="#issues" data-action="scrollTo">Issues</a></li>
+				<li><a href="#events" data-action="scrollTo">Events</a></li>
+				<li><a href="#blog" data-action="scrollTo">Updates</a></li>
+				<li><a href="#about" data-action="scrollTo">About</a></li>
 
-				<li><?php get_search_form(); ?></li>
 
 			</ul>
 
@@ -56,7 +55,6 @@
 					<li><a href="/blog">Updates</a></li>
 					<li><a href="/about">About</a></li>
 
-					<li><?php get_search_form(); ?></li>
 
 				</ul>
 
